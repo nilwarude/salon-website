@@ -1,0 +1,50 @@
+{
+  "name": "salon-website",
+  "version": "1.0.0",
+  "description": "Luxury Salon Website - Angular 19, Tailwind CSS, SSR",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "dev": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "ssr:dev": "ng serve --configuration=development",
+    "ssr:build": "ng build --configuration=production",
+    "serve:ssr:salon-website": "node dist/salon-website/server/server.mjs",
+    "prerender": "ng build --prerender",
+    "test": "ng test",
+    "lint": "ng lint",
+    "analyze": "ng build --stats-json && webpack-bundle-analyzer dist/salon-website/stats.json"
+  },
+  "dependencies": {
+    "@angular/animations": "^19.0.0",
+    "@angular/common": "^19.0.0",
+    "@angular/compiler": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@angular/forms": "^19.0.0",
+    "@angular/material": "^19.0.0",
+    "@angular/cdk": "^19.0.0",
+    "@angular/platform-browser": "^19.0.0",
+    "@angular/platform-browser-dynamic": "^19.0.0",
+    "@angular/platform-server": "^19.0.0",
+    "@angular/router": "^19.0.0",
+    "@angular/ssr": "^19.0.0",
+    "aos": "^3.0.0-beta.6",
+    "swiper": "^11.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.0.0",
+    "@angular/cli": "^19.0.0",
+    "@angular/compiler-cli": "^19.0.0",
+    "@types/aos": "^3.0.7",
+    "@types/node": "^22.0.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "postcss-loader": "^8.1.1",
+    "tailwindcss": "^3.4.4",
+    "typescript": "~5.6.0"
+  }
+}
