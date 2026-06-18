@@ -14,9 +14,9 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
           <p class="font-sans text-sm text-primary uppercase tracking-[0.25em] mb-4" data-aos="fade-up">About Us</p>
           <h1 class="font-serif text-4xl md:text-5xl lg:text-heading text-white font-bold" data-aos="fade-up" data-aos-delay="100">Our Story</h1>
           <div class="w-16 h-0.5 bg-primary mt-6 mb-6" data-aos="fade-up" data-aos-delay="200"></div>
-          <p class="text-white/70 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-            Discover the passion and artistry behind Luxury Salon — where every strand tells a story.
-          </p>
+           <p class="text-white/70 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+             Discover the passion and artistry behind Hairbar Unisex Salon — Vadodara's trusted destination for hair, skin, nails, and makeup.
+           </p>
         </div>
       </div>
     </section>
@@ -32,27 +32,27 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
           </div>
           <div data-aos="fade-left">
             <p class="section-subtitle">Our Journey</p>
-            <h2 class="section-title">A Legacy of Excellence</h2>
-            <div class="w-16 h-0.5 bg-primary my-6"></div>
-            <div class="space-y-4 text-dark/70 leading-relaxed">
-              <p>Founded in 2013, Luxury Salon was born from a vision to create a sanctuary where hair artistry meets unparalleled luxury. Our founder, Isabella Rossi, brought together a team of internationally trained stylists who share a common passion for excellence.</p>
-              <p>Over the past decade, we have grown from a small boutique studio into one of the most prestigious salons in the region, earning numerous awards and a loyal clientele who trust us with their most important moments.</p>
-              <p>Every visit to Luxury Salon is designed to be an experience — from the moment you step through our doors to the final reveal. We use only the finest products and continuously invest in the latest techniques and technologies.</p>
-            </div>
-            <div class="grid grid-cols-3 gap-8 mt-10 pt-10 border-t border-dark/10">
-              <div class="text-center">
-                <span class="font-serif text-3xl text-primary font-bold">12+</span>
-                <p class="text-xs text-dark/50 font-sans uppercase tracking-[0.1em] mt-1">Years</p>
-              </div>
-              <div class="text-center">
-                <span class="font-serif text-3xl text-primary font-bold">50+</span>
-                <p class="text-xs text-dark/50 font-sans uppercase tracking-[0.1em] mt-1">Awards</p>
-              </div>
-              <div class="text-center">
-                <span class="font-serif text-3xl text-primary font-bold">15K+</span>
-                <p class="text-xs text-dark/50 font-sans uppercase tracking-[0.1em] mt-1">Clients</p>
-              </div>
-            </div>
+             <h2 class="section-title">Vadodara's Premier Unisex Salon</h2>
+             <div class="w-16 h-0.5 bg-primary my-6"></div>
+             <div class="space-y-4 text-dark/70 leading-relaxed">
+               <p>Hairbar Unisex Salon was founded with a vision to create a complete grooming destination where both men and women can experience premium hair, skin, nails, and makeup services under one roof. Our team of skilled professionals shares a common passion for excellence.</p>
+               <p>Over the years, we have grown into one of Vadodara's most trusted salons, earning the prestigious Beardo Award and a loyal clientele who trust us with their look. With a stellar 4.7-star rating on Google from over 543 reviews, client satisfaction is our top priority.</p>
+               <p>Every visit to Hairbar is designed to be an experience — from precision haircuts to bridal makeup, hair treatments to nail care. We use only premium products and continuously invest in the latest techniques and technologies.</p>
+             </div>
+             <div class="grid grid-cols-3 gap-8 mt-10 pt-10 border-t border-dark/10">
+               <div class="text-center">
+                 <span class="font-serif text-3xl text-primary font-bold">4.7</span>
+                 <p class="text-xs text-dark/50 font-sans uppercase tracking-[0.1em] mt-1">Google Rating ★</p>
+               </div>
+               <div class="text-center">
+                 <span class="font-serif text-3xl text-primary font-bold">543+</span>
+                 <p class="text-xs text-dark/50 font-sans uppercase tracking-[0.1em] mt-1">Reviews</p>
+               </div>
+               <div class="text-center">
+                 <span class="font-serif text-3xl text-primary font-bold">7+</span>
+                 <p class="text-xs text-dark/50 font-sans uppercase tracking-[0.1em] mt-1">Years</p>
+               </div>
+             </div>
           </div>
         </div>
       </div>
@@ -83,8 +83,8 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
 })
 export class AboutComponent {
   values = [
-    { icon: '🎨', title: 'Artistry', description: 'Every haircut, color, and style is a work of art crafted with precision and creativity by our master stylists.' },
-    { icon: '💎', title: 'Quality', description: 'We use only premium products and the latest techniques to ensure exceptional results every time.' },
-    { icon: '🤝', title: 'Trust', description: 'Building lasting relationships with our clients through transparency, integrity, and exceptional service.' },
+    { icon: '🎨', title: 'Expert Styling', description: 'Every haircut, color, and style is crafted with precision by our skilled professionals for both men and women.' },
+    { icon: '💎', title: 'Premium Quality', description: 'We use only top-quality products and the latest techniques to ensure exceptional results every time.' },
+    { icon: '🤝', title: 'Client First', description: 'Building lasting relationships through personalized service, transparency, and exceptional care.' },
   ];
 }

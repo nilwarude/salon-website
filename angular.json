@@ -67,17 +67,7 @@
           "with": "src/environments/environment.prod.ts"
         }
       ],
-      "optimization": {
-        "scripts": true,
-        "styles": {
-          "minify": true,
-          "inlineCritical": true
-        },
-        "fonts": true,
-        "images": {
-          "maxInlineSize": 2048
-        }
-      }
+      "optimization": true
     },
     "development": {
       "optimization": false,

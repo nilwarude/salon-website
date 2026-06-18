@@ -50,21 +50,23 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
 })
 export class PricingComponent {
   pricingTiers: PricingTier[] = [
-    { name: 'Essential', price: '$85', description: 'Perfect for regular maintenance', features: ['Haircut & Style', 'Shampoo & Condition', 'Blow Dry', 'Style Consultation'], highlighted: false },
-    { name: 'Premium', price: '$200', description: 'Our most popular package', features: ['Everything in Essential', 'Color or Highlights', 'Deep Conditioning', 'Luxury Blowout', 'Complimentary Beverage'], highlighted: true },
-    { name: 'Ultimate', price: '$400', description: 'The complete luxury experience', features: ['Everything in Premium', 'Full Color + Cut', 'Keratin Treatment', 'Scalp Massage', 'Wine & Treats', 'Priority Booking'], highlighted: false },
+    { name: 'Essential Cut', price: '₹399', description: 'Perfect for regular maintenance', features: ['Expert Haircut', 'Shampoo & Condition', 'Blow Dry', 'Style Consultation'], highlighted: false },
+    { name: 'Color & Style', price: '₹1,999', description: 'Our most popular package', features: ['Haircut & Style', 'Full Hair Color', 'Deep Conditioning', 'Blow Dry', 'Complimentary Beverage'], highlighted: true },
+    { name: 'Bridal Special', price: '₹4,999', description: 'Complete bridal beauty package', features: ['Bridal Makeup', 'Hair Styling', 'Manicure & Pedicure', 'Facial', 'Trial Session', 'Priority Booking'], highlighted: false },
   ];
 
   individualPrices = [
-    { service: 'Women\'s Haircut', description: 'Wash, cut & blow-dry', price: '$85' },
-    { service: 'Men\'s Haircut', description: 'Cut & style', price: '$55' },
-    { service: 'Full Highlights', description: 'Partial or full foil', price: '$175' },
-    { service: 'Balayage', description: 'Hand-painted highlights', price: '$200' },
-    { service: 'Single Process Color', description: 'All-over color', price: '$120' },
-    { service: 'Blowout', description: 'Wash & blow-dry style', price: '$65' },
-    { service: 'Updo/Special Occasion', description: 'Formal styling', price: '$150' },
-    { service: 'Deep Conditioning', description: 'Hydrating treatment', price: '$45' },
-    { service: 'Keratin Treatment', description: 'Smoothing treatment', price: '$250' },
-    { service: 'Bridal Package', description: 'Trial + wedding day', price: '$450' },
+    { service: 'Haircut (Women)', description: 'Wash, cut & blow-dry', price: '₹499' },
+    { service: 'Haircut (Men)', description: 'Cut & style', price: '₹349' },
+    { service: 'Haircut (Kids)', description: 'Gentle cut for children', price: '₹249' },
+    { service: 'Full Hair Color', description: 'All-over color', price: '₹1,299' },
+    { service: 'Highlights', description: 'Partial or full foil', price: '₹1,999' },
+    { service: 'Blowout', description: 'Wash & blow-dry style', price: '₹399' },
+    { service: 'Hair Spa', description: 'Nourishing treatment', price: '₹599' },
+    { service: 'Facial', description: 'Rejuvenating skin care', price: '₹699' },
+    { service: 'Manicure', description: 'Professional nail care', price: '₹399' },
+    { service: 'Pedicure', description: 'Complete foot care', price: '₹499' },
+    { service: 'Bridal Makeup', description: 'Trial + wedding day', price: '₹4,999' },
+    { service: 'Beard Trim', description: 'Precision beard shaping', price: '₹149' },
   ];
 }
