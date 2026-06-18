@@ -14,7 +14,7 @@ import { PricingCardComponent, PricingTier } from '../../components/pricing-card
           <p class="font-sans text-sm text-primary uppercase tracking-[0.25em] mb-4" data-aos="fade-up">Our Services</p>
           <h1 class="font-serif text-4xl md:text-5xl lg:text-heading text-white font-bold" data-aos="fade-up" data-aos-delay="100">Premium Treatments</h1>
           <div class="w-16 h-0.5 bg-primary mt-6 mb-6" data-aos="fade-up" data-aos-delay="200"></div>
-          <p class="text-white/70 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">Discover our comprehensive range of luxury hair and beauty services.</p>
+           <p class="text-white/70 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">Discover our comprehensive range of hair, skin, nails, and makeup services for men and women.</p>
         </div>
       </div>
     </section>
@@ -47,20 +47,20 @@ import { PricingCardComponent, PricingTier } from '../../components/pricing-card
 })
 export class ServicesComponent {
   services: ServiceItem[] = [
-    { icon: '✂️', title: 'Precision Haircuts', description: 'Expert cuts tailored to your face shape.', duration: '45 min', price: '$85+' },
-    { icon: '🎨', title: 'Color & Highlights', description: 'Transformative color services.', duration: '2 hrs', price: '$150+' },
-    { icon: '💫', title: 'Blowouts & Styling', description: 'Perfect for any occasion.', duration: '1 hr', price: '$65+' },
-    { icon: '💎', title: 'Hair Treatments', description: 'Restorative treatments.', duration: '1 hr', price: '$95+' },
-    { icon: '👰', title: 'Bridal Packages', description: 'Complete bridal beauty.', duration: '3 hrs', price: '$350+' },
-    { icon: '🧔', title: "Men's Grooming", description: 'Premium grooming.', duration: '30 min', price: '$55+' },
-    { icon: '🌿', title: 'Scalp Therapy', description: 'Deep cleansing and treatment.', duration: '45 min', price: '$75+' },
-    { icon: '✨', title: 'Keratin Treatment', description: 'Smoothing and frizz control.', duration: '2.5 hrs', price: '$250+' },
-    { icon: '🎀', title: 'Kids Haircuts', description: 'Gentle cuts for children.', duration: '30 min', price: '$45+' },
+    { icon: '✂️', title: 'Haircuts & Styling', description: 'Expert cuts and styling for men and women tailored to your look.', duration: '45 min', price: '₹399+' },
+    { icon: '🎨', title: 'Hair Color & Highlights', description: 'Transformative color services using premium products.', duration: '2 hrs', price: '₹999+' },
+    { icon: '💫', title: 'Blowouts & Hair Spa', description: 'Perfect blowouts and nourishing hair spa treatments.', duration: '1 hr', price: '₹499+' },
+    { icon: '💎', title: 'Hair Treatments', description: 'Restorative treatments for healthy, beautiful hair.', duration: '1 hr', price: '₹699+' },
+    { icon: '👰', title: 'Bridal & Party Makeup', description: 'Complete bridal and party makeup packages.', duration: '3 hrs', price: '₹2,999+' },
+    { icon: '🧔', title: "Men's Grooming", description: 'Premium haircuts, beard trims, and facials.', duration: '30 min', price: '₹349+' },
+    { icon: '🌿', title: 'Skin Care & Facials', description: 'Rejuvenating facials and skin treatments.', duration: '45 min', price: '₹599+' },
+    { icon: '💅', title: 'Nails & Manicure', description: 'Professional nail care, manicure, and pedicure.', duration: '45 min', price: '₹399+' },
+    { icon: '🎀', title: 'Kids Haircuts', description: 'Gentle cuts for children in a friendly environment.', duration: '30 min', price: '₹249+' },
   ];
 
   pricingTiers: PricingTier[] = [
-    { name: 'Essential', price: '$85', description: 'Perfect for regular maintenance', features: ['Haircut & Style', 'Shampoo & Condition', 'Blow Dry', 'Style Consultation'], highlighted: false },
-    { name: 'Premium', price: '$200', description: 'Our most popular package', features: ['Everything in Essential', 'Color or Highlights', 'Deep Conditioning', 'Luxury Blowout', 'Complimentary Beverage'], highlighted: true },
-    { name: 'Ultimate', price: '$400', description: 'The complete luxury experience', features: ['Everything in Premium', 'Full Color + Cut', 'Keratin Treatment', 'Scalp Massage', 'Wine & Treats', 'Priority Booking'], highlighted: false },
+    { name: 'Essential Cut', price: '₹399', description: 'Perfect for regular maintenance', features: ['Expert Haircut', 'Shampoo & Condition', 'Blow Dry', 'Style Consultation'], highlighted: false },
+    { name: 'Color & Style', price: '₹1,999', description: 'Our most popular package', features: ['Haircut & Style', 'Full Hair Color', 'Deep Conditioning', 'Blow Dry', 'Complimentary Beverage'], highlighted: true },
+    { name: 'Bridal Special', price: '₹4,999', description: 'Complete bridal beauty package', features: ['Bridal Makeup', 'Hair Styling', 'Manicure & Pedicure', 'Facial', 'Trial Session', 'Priority Booking'], highlighted: false },
   ];
 }

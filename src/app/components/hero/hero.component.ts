@@ -151,11 +151,11 @@ export interface HeroSlide {
 })
 export class HeroComponent {
   slide = input<HeroSlide>({
-    title: 'Where Art Meets Luxury',
-    subtitle: 'Premium Hair & Beauty Studio',
-    description: 'Indulge in a transformative beauty experience curated by our master stylists. Every visit is a masterpiece.',
+    title: 'Your Style, Our Passion',
+    subtitle: 'Hair | Skin | Nails | Makeup',
+    description: 'Vadodara\'s premium unisex salon offering expert haircuts, hair color, styling, skin care, nails, and makeup services. Beardo Award Winner.',
     image: '/assets/images/hero-bg.webp',
-    ctaText: 'Book Your Experience',
+    ctaText: 'Book Your Appointment',
     ctaLink: '/appointment',
   });
 }

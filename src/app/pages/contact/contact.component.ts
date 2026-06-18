@@ -31,9 +31,12 @@ import { Component } from '@angular/core';
               <select class="w-full px-4 py-3 border border-dark/20 text-sm focus:outline-none focus:border-primary transition-colors bg-white text-dark/60">
                 <option value="" disabled selected>Select Service</option>
                 <option>Haircut & Styling</option>
-                <option>Color & Highlights</option>
-                <option>Bridal Packages</option>
-                <option>Hair Treatments</option>
+                <option>Hair Color & Highlights</option>
+                <option>Bridal & Party Makeup</option>
+                <option>Hair Treatments & Spa</option>
+                <option>Skin & Facial Care</option>
+                <option>Nails & Manicure</option>
+                <option>Men's Grooming</option>
                 <option>Other</option>
               </select>
               <textarea rows="5" placeholder="Your Message" class="w-full px-4 py-3 border border-dark/20 text-sm focus:outline-none focus:border-primary transition-colors bg-white resize-none"></textarea>
@@ -88,9 +91,9 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
   contactInfo = [
-    { icon: '📍', title: 'Address', detail: '123 Luxury Avenue, Beverly Hills, CA 90210' },
-    { icon: '📞', title: 'Phone', detail: '+1 (555) 123-4567' },
-    { icon: '✉️', title: 'Email', detail: 'contact@luxurysalon.com' },
-    { icon: '🕐', title: 'Working Hours', detail: 'Mon-Fri: 9AM-7PM, Sat: 9AM-5PM, Sun: Closed' },
+    { icon: '📍', title: 'Address', detail: 'Waghodiya Road, Vadodara, Gujarat 390019' },
+    { icon: '📞', title: 'Phone', detail: '+91 99099 20099' },
+    { icon: '✉️', title: 'Email', detail: 'hairbar.unisexsalon@gmail.com' },
+    { icon: '🕐', title: 'Working Hours', detail: 'Mon-Sun: 9AM-10PM' },
   ];
 }

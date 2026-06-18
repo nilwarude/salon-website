@@ -30,10 +30,10 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
       <div class="container-custom">
         <div class="text-center max-w-3xl mx-auto mb-16">
           <p class="section-subtitle" data-aos="fade-up">Our Services</p>
-          <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Premium Hair & Beauty Services</h2>
+          <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Our Services</h2>
           <div class="gold-divider mt-6" data-aos="fade-up" data-aos-delay="200"></div>
           <p class="text-dark/60 mt-6 leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-            From precision cuts to transformative color, our master stylists bring artistry and expertise to every service.
+            From precision haircuts to bridal makeup, we offer a complete range of hair, skin, nails, and makeup services for men and women.
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -54,11 +54,11 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
           <!-- Content -->
           <div>
             <p class="section-subtitle" data-aos="fade-up">Why Choose Us</p>
-            <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Where Excellence Meets Elegance</h2>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Vadodara's Trusted Unisex Salon</h2>
             <div class="w-16 h-0.5 bg-primary mt-6 mb-8" data-aos="fade-up" data-aos-delay="200"></div>
             <p class="text-dark/60 leading-relaxed mb-8" data-aos="fade-up" data-aos-delay="300">
-              At Luxury Salon, we believe every client deserves a premium experience. Our team of internationally 
-              trained stylists uses only the finest products and techniques to deliver exceptional results.
+              At Hairbar Unisex Salon, we offer premium hair, skin, nails, and makeup services for both men and women. 
+              Our expert team uses top-quality products to deliver exceptional results. Proud Beardo Award Winner with 4.7 stars on Google.
             </p>
             <div class="grid grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="400">
               @for (feature of whyChooseUs; track feature.title) {
@@ -75,12 +75,12 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
           <!-- Image -->
           <div class="relative" data-aos="fade-left">
             <div class="aspect-[4/5] overflow-hidden">
-              <img src="/assets/images/about-preview.webp" alt="Luxury Salon Interior" class="w-full h-full object-cover" loading="lazy"/>
+              <img src="/assets/images/about-preview.webp" alt="Hairbar Unisex Salon Vadodara" class="w-full h-full object-cover" loading="lazy"/>
             </div>
             <!-- Floating Stat -->
             <div class="absolute -bottom-6 -left-6 bg-primary text-white p-6 shadow-gold-lg">
-              <span class="font-serif text-3xl font-bold block">12+</span>
-              <span class="text-xs font-sans uppercase tracking-[0.15em] opacity-80">Years Excellence</span>
+              <span class="font-serif text-3xl font-bold block">4.7</span>
+              <span class="text-xs font-sans uppercase tracking-[0.15em] opacity-80">Google Rating ★</span>
             </div>
           </div>
         </div>
@@ -176,7 +176,7 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
       <div class="container-custom">
         <div class="text-center mb-10">
           <p class="section-subtitle" data-aos="fade-up">Follow Us</p>
-          <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">&#64;luxurysalon</h2>
+          <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">&#64;hairbar.official</h2>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2" data-aos="fade-up">
           @for (item of instagramFeed; track item.image) {
@@ -194,59 +194,83 @@ export class HomeComponent {
     {
       icon: '✂️',
       title: 'Precision Haircuts',
-      description: 'Expert cuts tailored to your face shape and lifestyle, executed with master-level precision.',
+      description: 'Expert cuts tailored to your face shape and lifestyle, executed with master-level precision for men and women.',
       duration: '45 min',
-      price: '$85+',
+      price: '₹399+',
     },
     {
       icon: '🎨',
-      title: 'Color & Highlights',
+      title: 'Hair Color & Highlights',
       description: 'Transformative color services using premium products for stunning, long-lasting results.',
       duration: '2 hrs',
-      price: '$150+',
+      price: '₹999+',
     },
     {
       icon: '💫',
       title: 'Blowouts & Styling',
-      description: 'Perfect blowouts and elegant styling for any occasion, from casual to red carpet.',
+      description: 'Perfect blowouts and elegant styling for any occasion, from casual to special events.',
       duration: '1 hr',
-      price: '$65+',
+      price: '₹499+',
     },
     {
       icon: '💎',
-      title: 'Hair Treatments',
+      title: 'Hair Treatments & Spa',
       description: 'Restorative treatments that revitalize and strengthen your hair from root to tip.',
       duration: '1 hr',
-      price: '$95+',
+      price: '₹699+',
     },
     {
       icon: '👰',
-      title: 'Bridal Packages',
-      description: 'Comprehensive bridal beauty packages for your special day, including trials.',
+      title: 'Bridal & Party Makeup',
+      description: 'Comprehensive bridal and party makeup packages for your special day, including trials.',
       duration: '3 hrs',
-      price: '$350+',
+      price: '₹2,999+',
     },
     {
       icon: '🧔',
       title: "Men's Grooming",
-      description: 'Premium grooming services including cuts, beard trims, and facial treatments.',
+      description: 'Premium grooming services including haircuts, beard trims, and facial treatments.',
       duration: '30 min',
-      price: '$55+',
+      price: '₹349+',
     },
   ];
 
   whyChooseUs = [
-    { icon: '🏆', title: 'Award-Winning Team', description: 'Internationally trained stylists' },
-    { icon: '🌿', title: 'Premium Products', description: 'Only the finest brands' },
-    { icon: '✨', title: 'Luxury Experience', description: 'From welcome to farewell' },
-    { icon: '💯', title: 'Satisfaction Guaranteed', description: 'We stand by our work' },
+    { icon: '🏆', title: 'Beardo Award Winner', description: 'Recognized for excellence' },
+    { icon: '⭐', title: '4.7 Google Rating', description: '543+ happy reviews' },
+    { icon: '✨', title: 'Premium Unisex Salon', description: 'Hair, skin, nails & makeup' },
+    { icon: '💯', title: 'Expert Stylists', description: 'Skilled professionals' },
   ];
 
   statistics = [
-    { number: '15,000+', label: 'Happy Clients' },
-    { number: '12+', label: 'Years Experience' },
-    { number: '50+', label: 'Awards Won' },
-    { number: '98%', label: 'Satisfaction Rate' },
+    { number: '543+', label: 'Google Reviews' },
+    { number: '7+', label: 'Years of Service' },
+    { number: '4.7', label: 'Google Rating ★' },
+    { number: '1000s', label: 'Happy Customers' },
+  ];
+
+  testimonials: Testimonial[] = [
+    {
+      name: 'Priya Sharma',
+      role: 'Regular Client, Vadodara',
+      image: '/assets/images/testimonials/client-1.webp',
+      content: 'Best salon in Vadodara! The staff is incredibly professional and the service is top-notch. My hair has never looked better. Highly recommend Hairbar for all your salon needs.',
+      rating: 5,
+    },
+    {
+      name: 'Rahul Patel',
+      role: 'Happy Customer',
+      image: '/assets/images/testimonials/client-2.webp',
+      content: 'Great unisex salon with a welcoming atmosphere. The stylists really listen to what you want. Love the beard grooming service - they do an excellent job!',
+      rating: 5,
+    },
+    {
+      name: 'Anita Desai',
+      role: 'Bridal Client',
+      image: '/assets/images/testimonials/client-3.webp',
+      content: 'My bridal makeup was absolutely stunning! The team made me feel beautiful on my special day. The trial session was thorough and they captured exactly what I envisioned.',
+      rating: 5,
+    },
   ];
 
   galleryItems: GalleryItem[] = [
@@ -258,30 +282,6 @@ export class HomeComponent {
     { image: '/assets/images/gallery/gallery-6.webp', title: 'Editorial Styling', category: 'Editorial' },
     { image: '/assets/images/gallery/gallery-7.webp', title: 'Treatment Transformation', category: 'Treatment' },
     { image: '/assets/images/gallery/gallery-8.webp', title: "Men's Grooming", category: 'Grooming' },
-  ];
-
-  testimonials: Testimonial[] = [
-    {
-      name: 'Sarah Johnson',
-      role: 'Regular Client',
-      image: '/assets/images/testimonials/client-1.webp',
-      content: 'The most luxurious salon experience I\'ve ever had. From the moment I walked in, I felt pampered. My stylist listened to exactly what I wanted and delivered beyond my expectations.',
-      rating: 5,
-    },
-    {
-      name: 'Emily Davis',
-      role: 'Bridal Client',
-      image: '/assets/images/testimonials/client-2.webp',
-      content: 'My wedding hair was absolutely perfect! The team made me feel like a queen on my special day. The trial session ensured we got every detail right.',
-      rating: 5,
-    },
-    {
-      name: 'Michael Chen',
-      role: 'Regular Client',
-      image: '/assets/images/testimonials/client-3.webp',
-      content: 'Finally found a salon that understands men\'s grooming. The atmosphere is sophisticated yet welcoming. My barber is incredibly skilled and professional.',
-      rating: 5,
-    },
   ];
 
   teamMembers: TeamMember[] = [

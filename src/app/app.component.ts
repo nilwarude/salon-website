@@ -29,7 +29,7 @@ import { FooterComponent } from './layout/footer/footer.component';
   `]
 })
 export class AppComponent implements OnInit {
-  title = 'salon-website';
+  title = 'Hairbar Unisex Salon';
   isBrowser = signal(false);
 
   constructor(@Inject(PLATFORM_ID) private platformId: object) {

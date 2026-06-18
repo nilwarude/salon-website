@@ -32,21 +32,18 @@ import { Component } from '@angular/core';
                 <input type="tel" placeholder="Phone Number *" class="w-full px-4 py-3 border border-dark/20 text-sm focus:outline-none focus:border-primary transition-colors" required>
                 <select class="w-full px-4 py-3 border border-dark/20 text-sm focus:outline-none focus:border-primary transition-colors bg-white">
                   <option value="" disabled selected>Select Service *</option>
-                  <option>Precision Haircut</option>
-                  <option>Color & Highlights</option>
-                  <option>Balayage</option>
-                  <option>Blowout & Styling</option>
-                  <option>Hair Treatment</option>
-                  <option>Bridal Package</option>
+                  <option>Haircut & Styling</option>
+                  <option>Hair Color & Highlights</option>
+                  <option>Blowouts & Hair Spa</option>
+                  <option>Hair Treatments</option>
+                  <option>Bridal & Party Makeup</option>
                   <option>Men's Grooming</option>
+                  <option>Skin & Facial Care</option>
+                  <option>Nails & Manicure</option>
                 </select>
                 <select class="w-full px-4 py-3 border border-dark/20 text-sm focus:outline-none focus:border-primary transition-colors bg-white">
                   <option value="" disabled selected>Select Stylist</option>
-                  <option>Isabella Rossi</option>
-                  <option>James Mitchell</option>
-                  <option>Sophie Laurent</option>
-                  <option>David Park</option>
-                  <option>No Preference</option>
+                  <option>Any Stylist</option>
                 </select>
                 <div class="grid grid-cols-2 gap-4">
                   <input type="date" class="w-full px-4 py-3 border border-dark/20 text-sm focus:outline-none focus:border-primary transition-colors">
@@ -67,15 +64,13 @@ import { Component } from '@angular/core';
                 </div>
                 <div class="pt-6 border-t border-dark/10">
                   <h4 class="font-serif text-base text-dark mb-4">Quick Contact</h4>
-                  <p class="text-sm text-dark/60">Call us: +1 (555) 123-4567</p>
-                  <p class="text-sm text-dark/60">Email: contact&#64;luxurysalon.com</p>
+                   <p class="text-sm text-dark/60">Call us: +91 99099 20099</p>
+                   <p class="text-sm text-dark/60">Email: hairbar.unisexsalon&#64;gmail.com</p>
                 </div>
                 <div class="pt-6 border-t border-dark/10">
                   <h4 class="font-serif text-base text-dark mb-4">Working Hours</h4>
                   <div class="space-y-2 text-sm">
-                    <div class="flex justify-between text-dark/60"><span>Mon - Fri</span><span>9AM - 7PM</span></div>
-                    <div class="flex justify-between text-dark/60"><span>Saturday</span><span>9AM - 5PM</span></div>
-                    <div class="flex justify-between text-dark/60"><span>Sunday</span><span>Closed</span></div>
+                     <div class="flex justify-between text-dark/60"><span>Mon - Sun</span><span>9AM - 10PM</span></div>
                   </div>
                 </div>
               </div>

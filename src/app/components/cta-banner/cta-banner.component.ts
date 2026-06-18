@@ -57,8 +57,8 @@ import { RouterLink } from '@angular/router';
   `]
 })
 export class CtaBannerComponent {
-  title = 'Ready to Transform Your Look?';
+  title = 'Ready for Your New Look?';
   subtitle = 'Book Your Appointment';
-  description = 'Experience the art of luxury hairstyling. Our master stylists are ready to create your perfect look.';
-  ctaText = 'Schedule Your Visit';
+  description = 'Experience Vadodara\'s best hair, skin, and makeup services. Our expert stylists are ready to create your perfect style.';
+  ctaText = 'Book Now';
 }
