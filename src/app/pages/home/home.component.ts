@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { ServiceCardComponent, ServiceItem } from '../../components/service-card/service-card.component';
 import { GalleryCardComponent, GalleryItem } from '../../components/gallery-card/gallery-card.component';
-import { TeamCardComponent, TeamMember } from '../../components/team-card/team-card.component';
 import { TestimonialSliderComponent, Testimonial } from '../../components/testimonial-slider/testimonial-slider.component';
 import { BlogCardComponent, BlogPost } from '../../components/blog-card/blog-card.component';
 import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.component';
@@ -15,7 +14,6 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
     HeroComponent,
     ServiceCardComponent,
     GalleryCardComponent,
-    TeamCardComponent,
     TestimonialSliderComponent,
     BlogCardComponent,
     CtaBannerComponent,
@@ -75,7 +73,7 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
           <!-- Image -->
           <div class="relative" data-aos="fade-left">
             <div class="aspect-[4/5] overflow-hidden">
-              <img src="/assets/images/about-preview.webp" alt="Hairbar Unisex Salon Vadodara" class="w-full h-full object-cover" loading="lazy"/>
+              <img src="/assets/images/about-preview.svg" alt="Hairbar Unisex Salon Vadodara" class="w-full h-full object-cover" loading="lazy"/>
             </div>
             <!-- Floating Stat -->
             <div class="absolute -bottom-6 -left-6 bg-primary text-white p-6 shadow-gold-lg">
@@ -131,22 +129,6 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           @for (testimonial of testimonials; track testimonial.name) {
             <app-testimonial-slider [testimonial]="testimonial" />
-          }
-        </div>
-      </div>
-    </section>
-
-    <!-- Team Preview -->
-    <section class="section-padding">
-      <div class="container-custom">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <p class="section-subtitle" data-aos="fade-up">Our Team</p>
-          <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Meet Our Master Stylists</h2>
-          <div class="gold-divider mt-6" data-aos="fade-up" data-aos-delay="200"></div>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          @for (member of teamMembers; track member.name) {
-            <app-team-card [member]="member" />
           }
         </div>
       </div>
@@ -251,85 +233,98 @@ export class HomeComponent {
 
   testimonials: Testimonial[] = [
     {
-      name: 'Priya Sharma',
-      role: 'Regular Client, Vadodara',
-      image: '/assets/images/testimonials/client-1.webp',
-      content: 'Best salon in Vadodara! The staff is incredibly professional and the service is top-notch. My hair has never looked better. Highly recommend Hairbar for all your salon needs.',
-      rating: 5,
-    },
-    {
-      name: 'Rahul Patel',
-      role: 'Happy Customer',
-      image: '/assets/images/testimonials/client-2.webp',
-      content: 'Great unisex salon with a welcoming atmosphere. The stylists really listen to what you want. Love the beard grooming service - they do an excellent job!',
+      name: 'Neha Sharma',
+      role: 'Bridal Client',
+      image: '/assets/images/testimonials/client-1.svg',
+      content: 'I cannot thank the Hairbar team enough for my wedding look! The bridal makeup was absolutely flawless and lasted the entire day without a single touch-up. The hair styling was elegant and exactly what I had envisioned. My entire family was so impressed with the professionalism and attention to detail. Truly the best bridal salon in Vadodara!',
       rating: 5,
     },
     {
       name: 'Anita Desai',
       role: 'Bridal Client',
-      image: '/assets/images/testimonials/client-3.webp',
-      content: 'My bridal makeup was absolutely stunning! The team made me feel beautiful on my special day. The trial session was thorough and they captured exactly what I envisioned.',
+      image: '/assets/images/testimonials/client-2.svg',
+      content: 'My bridal makeup and hairstyle were absolutely stunning! The trial session was so thorough and they captured exactly what I envisioned. On the wedding day, the team arrived on time and made me feel like a queen. The makeup lasted through all the ceremonies without fading. Highly recommended for all brides-to-be!',
+      rating: 5,
+    },
+    {
+      name: 'Riya Patel',
+      role: 'Bridal Party Client',
+      image: '/assets/images/testimonials/client-3.svg',
+      content: 'We booked the complete bridal package for my sister\'s wedding and the entire bridal party of 8 looked gorgeous. The team managed everyone seamlessly, from makeup to hair styling, with different looks for each of us. Every single person felt special and looked stunning. Outstanding coordination and exceptional service!',
+      rating: 5,
+    },
+    {
+      name: 'Priya Sharma',
+      role: 'Haircut Client',
+      image: '/assets/images/testimonials/client-4.svg',
+      content: 'Best haircut experience in Vadodara! The stylist took time to understand my face shape and hair texture before suggesting the perfect cut. The precision layering is exactly what I wanted and the blow-dry was flawless. My hair has never looked this good. I\'ve finally found my go-to salon for haircuts!',
+      rating: 5,
+    },
+    {
+      name: 'Vikram Joshi',
+      role: 'Men\'s Haircut Client',
+      image: '/assets/images/testimonials/client-5.svg',
+      content: 'Hands down the best men\'s haircut I\'ve ever had in Vadodara. The stylist consulted with me about my lifestyle and hair type before recommending a style. The precision fade and neck trim are flawless every single time. The hot towel wrap and head massage during the wash are incredible extras. Worth every rupee!',
+      rating: 5,
+    },
+    {
+      name: 'Arjun Mehta',
+      role: 'Men\'s Grooming Client',
+      image: '/assets/images/testimonials/client-6.svg',
+      content: 'Finally found a barber who truly understands what I want. The precision haircut and beard shaping are top-class. The beard grooming service uses premium products and the finish is always clean and sharp. The hot towel treatment and straight razor neck shave are absolute game changers. Highly recommended for all men looking for quality grooming!',
+      rating: 5,
+    },
+    {
+      name: 'Meera Reddy',
+      role: 'Facial Client',
+      image: '/assets/images/testimonials/client-1.svg',
+      content: 'The gold facial I got at Hairbar was pure luxury! My skin was glowing for days after the treatment. The esthetician was very knowledgeable, explained each step, and recommended the perfect products for my skin type. The facial massage was so relaxing. A must-try facial experience for anyone in Vadodara!',
+      rating: 5,
+    },
+    {
+      name: 'Sneha Kapoor',
+      role: 'Facial & Skin Care Client',
+      image: '/assets/images/testimonials/client-2.svg',
+      content: 'The hydrating facial was exactly what my skin needed! The products used were gentle yet incredibly effective. My skin felt rejuvenated and looked radiant for weeks. The facial massage and steam treatment were so relaxing I almost fell asleep. I will definitely be coming back every month for skin care treatments!',
+      rating: 5,
+    },
+    {
+      name: 'Deepa Nair',
+      role: 'Hair Treatment Client',
+      image: '/assets/images/testimonials/client-3.svg',
+      content: 'My hair was severely damaged from repeated coloring and styling, but the hair treatment at Hairbar brought it back to life! The keratin smoothing treatment left my hair silky smooth and frizz-free for months. The consultation was thorough and the results truly speak for themselves. My hair feels healthier than ever before!',
+      rating: 5,
+    },
+    {
+      name: 'Amit Khanna',
+      role: 'Men\'s Grooming Client',
+      image: '/assets/images/testimonials/client-4.svg',
+      content: 'Best men\'s salon in town without a doubt! The haircut is always precise and the stylist remembers my preferences every time I visit. The beard shaping service is exceptional with attention to every detail. The atmosphere is welcoming and the staff is extremely professional. Highly recommended for all men in Vadodara!',
+      rating: 5,
+    },
+    {
+      name: 'Rahul Patel',
+      role: 'Regular Client',
+      image: '/assets/images/testimonials/client-5.svg',
+      content: 'Great unisex salon with a really welcoming atmosphere. The stylists listen carefully to what you want and always deliver exactly that. I love the beard grooming service — they shape it perfectly and the finish is always clean. A truly premium grooming experience without the premium price tag!',
       rating: 5,
     },
   ];
 
   galleryItems: GalleryItem[] = [
-    { image: '/assets/images/gallery/gallery-1.webp', title: 'Balayage Masterpiece', category: 'Color' },
-    { image: '/assets/images/gallery/gallery-2.webp', title: 'Precision Cut', category: 'Cutting' },
-    { image: '/assets/images/gallery/gallery-3.webp', title: 'Bridal Elegance', category: 'Bridal' },
-    { image: '/assets/images/gallery/gallery-4.webp', title: 'Blowout Perfection', category: 'Styling' },
-    { image: '/assets/images/gallery/gallery-5.webp', title: 'Color Melt', category: 'Color' },
-    { image: '/assets/images/gallery/gallery-6.webp', title: 'Editorial Styling', category: 'Editorial' },
-    { image: '/assets/images/gallery/gallery-7.webp', title: 'Treatment Transformation', category: 'Treatment' },
-    { image: '/assets/images/gallery/gallery-8.webp', title: "Men's Grooming", category: 'Grooming' },
-  ];
-
-  teamMembers: TeamMember[] = [
-    {
-      image: '/assets/images/team/team-1.webp',
-      name: 'Isabella Rossi',
-      role: 'Master Stylist & Creative Director',
-      bio: '15+ years of expertise in precision cutting and creative coloring.',
-      socials: [
-        { icon: 'f', url: '#' },
-        { icon: 'i', url: '#' },
-      ],
-    },
-    {
-      image: '/assets/images/team/team-2.webp',
-      name: 'James Mitchell',
-      role: 'Senior Colorist',
-      bio: 'Specializing in balayage, ombre, and color correction techniques.',
-      socials: [
-        { icon: 'f', url: '#' },
-        { icon: 'i', url: '#' },
-      ],
-    },
-    {
-      image: '/assets/images/team/team-3.webp',
-      name: 'Sophie Laurent',
-      role: 'Bridal & Editorial Stylist',
-      bio: 'Paris-trained stylist with a passion for editorial and bridal hair.',
-      socials: [
-        { icon: 'f', url: '#' },
-        { icon: 'i', url: '#' },
-      ],
-    },
-    {
-      image: '/assets/images/team/team-4.webp',
-      name: 'David Park',
-      role: 'Master Barber',
-      bio: 'Expert in classic and contemporary men\'s grooming and beard styling.',
-      socials: [
-        { icon: 'f', url: '#' },
-        { icon: 'i', url: '#' },
-      ],
-    },
+    { image: '/assets/images/gallery/gallery-1.svg', title: 'Balayage Masterpiece', category: 'Color' },
+    { image: '/assets/images/gallery/gallery-2.svg', title: 'Precision Cut', category: 'Cutting' },
+    { image: '/assets/images/gallery/gallery-3.svg', title: 'Bridal Elegance', category: 'Bridal' },
+    { image: '/assets/images/gallery/gallery-4.svg', title: 'Blowout Perfection', category: 'Styling' },
+    { image: '/assets/images/gallery/gallery-5.svg', title: 'Color Melt', category: 'Color' },
+    { image: '/assets/images/gallery/gallery-6.svg', title: 'Editorial Styling', category: 'Editorial' },
+    { image: '/assets/images/gallery/gallery-7.svg', title: 'Treatment Transformation', category: 'Treatment' },
+    { image: '/assets/images/gallery/gallery-8.svg', title: "Men's Grooming", category: 'Grooming' },
   ];
 
   blogPosts: BlogPost[] = [
     {
-      image: '/assets/images/blog/blog-1.webp',
+      image: '/assets/images/blog/blog-1.svg',
       title: '2025 Hair Color Trends: What\'s In This Season',
       excerpt: 'Discover the hottest hair color trends taking over salons this season, from lived-in brunettes to vibrant coppers.',
       date: 'January 15, 2025',
@@ -337,7 +332,7 @@ export class HomeComponent {
       slug: '2025-hair-color-trends',
     },
     {
-      image: '/assets/images/blog/blog-2.webp',
+      image: '/assets/images/blog/blog-2.svg',
       title: 'The Ultimate Guide to Hair Care at Home',
       excerpt: 'Expert tips and product recommendations for maintaining salon-fresh hair between appointments.',
       date: 'January 10, 2025',
@@ -345,7 +340,7 @@ export class HomeComponent {
       slug: 'ultimate-hair-care-guide',
     },
     {
-      image: '/assets/images/blog/blog-3.webp',
+      image: '/assets/images/blog/blog-3.svg',
       title: 'Bridal Hair: Planning Your Perfect Wedding Look',
       excerpt: 'Everything you need to know about planning your bridal hair, from consultations to the big day.',
       date: 'January 5, 2025',
@@ -355,11 +350,11 @@ export class HomeComponent {
   ];
 
   instagramFeed = [
-    { image: '/assets/images/instagram/insta-1.webp' },
-    { image: '/assets/images/instagram/insta-2.webp' },
-    { image: '/assets/images/instagram/insta-3.webp' },
-    { image: '/assets/images/instagram/insta-4.webp' },
-    { image: '/assets/images/instagram/insta-5.webp' },
-    { image: '/assets/images/instagram/insta-6.webp' },
+    { image: '/assets/images/instagram/insta-1.svg' },
+    { image: '/assets/images/instagram/insta-2.svg' },
+    { image: '/assets/images/instagram/insta-3.svg' },
+    { image: '/assets/images/instagram/insta-4.svg' },
+    { image: '/assets/images/instagram/insta-5.svg' },
+    { image: '/assets/images/instagram/insta-6.svg' },
   ];
 }

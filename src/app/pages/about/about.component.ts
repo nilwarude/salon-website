@@ -27,7 +27,7 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div data-aos="fade-right">
             <div class="aspect-[4/5] overflow-hidden">
-              <img src="/assets/images/about-story.webp" alt="Our Story" class="w-full h-full object-cover" loading="lazy"/>
+              <img src="/assets/images/about-story.svg" alt="Our Story" class="w-full h-full object-cover" loading="lazy"/>
             </div>
           </div>
           <div data-aos="fade-left">
@@ -35,7 +35,7 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
              <h2 class="section-title">Vadodara's Premier Unisex Salon</h2>
              <div class="w-16 h-0.5 bg-primary my-6"></div>
              <div class="space-y-4 text-dark/70 leading-relaxed">
-               <p>Hairbar Unisex Salon was founded with a vision to create a complete grooming destination where both men and women can experience premium hair, skin, nails, and makeup services under one roof. Our team of skilled professionals shares a common passion for excellence.</p>
+                <p>Hairbar Unisex Salon was founded with a vision to create a complete grooming destination where both men and women can experience premium hair, skin, nails, and makeup services under one roof. Every service is delivered with precision and a commitment to excellence.</p>
                <p>Over the years, we have grown into one of Vadodara's most trusted salons, earning the prestigious Beardo Award and a loyal clientele who trust us with their look. With a stellar 4.7-star rating on Google from over 543 reviews, client satisfaction is our top priority.</p>
                <p>Every visit to Hairbar is designed to be an experience — from precision haircuts to bridal makeup, hair treatments to nail care. We use only premium products and continuously invest in the latest techniques and technologies.</p>
              </div>

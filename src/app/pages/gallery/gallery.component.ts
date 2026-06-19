@@ -28,7 +28,7 @@ import { GalleryCardComponent, GalleryItem } from '../../components/gallery-card
 })
 export class GalleryComponent {
   galleryItems: GalleryItem[] = Array.from({ length: 16 }, (_, i) => ({
-    image: `/assets/images/gallery/gallery-${i + 1}.webp`,
+    image: `/assets/images/gallery/gallery-${i + 1}.svg`,
     title: ['Balayage Masterpiece', 'Precision Cut', 'Bridal Elegance', 'Blowout Perfection', 'Color Melt', 'Editorial Styling', 'Treatment Transformation', "Men's Grooming", 'Vintage Waves', 'Modern Bob', 'Platinum Blonde', 'Textured Layers', 'Curly Cut', 'Root Touch-up', 'Formal Updo', 'Beard Sculpting'][i],
     category: ['Color', 'Cutting', 'Bridal', 'Styling', 'Color', 'Editorial', 'Treatment', 'Grooming', 'Styling', 'Cutting', 'Color', 'Cutting', 'Cutting', 'Color', 'Styling', 'Grooming'][i],
   }));

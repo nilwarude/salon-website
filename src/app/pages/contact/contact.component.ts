@@ -91,9 +91,9 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
   contactInfo = [
-    { icon: '📍', title: 'Address', detail: 'Waghodiya Road, Vadodara, Gujarat 390019' },
-    { icon: '📞', title: 'Phone', detail: '+91 99099 20099' },
-    { icon: '✉️', title: 'Email', detail: 'hairbar.unisexsalon@gmail.com' },
+    { icon: '📍', title: 'Address', detail: 'Shop No-14, Harmony, Near Sai Baba Temple, Parivar Char Rasta, Waghodiya Road, Vadodara, Gujarat 390025' },
+    { icon: '📞', title: 'Phone', detail: '+91 78619 35860' },
+    { icon: '✉️', title: 'Email', detail: 'contact@hairbar.in' },
     { icon: '🕐', title: 'Working Hours', detail: 'Mon-Sun: 9AM-10PM' },
   ];
 }

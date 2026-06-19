@@ -64,8 +64,8 @@ import { Component } from '@angular/core';
                 </div>
                 <div class="pt-6 border-t border-dark/10">
                   <h4 class="font-serif text-base text-dark mb-4">Quick Contact</h4>
-                   <p class="text-sm text-dark/60">Call us: +91 99099 20099</p>
-                   <p class="text-sm text-dark/60">Email: hairbar.unisexsalon&#64;gmail.com</p>
+                   <p class="text-sm text-dark/60">Call us: +91 78619 35860</p>
+                   <p class="text-sm text-dark/60">Email: contact&#64;hairbar.in</p>
                 </div>
                 <div class="pt-6 border-t border-dark/10">
                   <h4 class="font-serif text-base text-dark mb-4">Working Hours</h4>
