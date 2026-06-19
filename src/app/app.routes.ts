@@ -57,17 +57,6 @@ export const routes: Routes = [
     },
   },
   {
-    path: 'team',
-    loadComponent: () =>
-      import('./pages/team/team.component').then((m) => m.TeamComponent),
-    title: 'Our Team | Luxury Salon',
-    data: {
-      title: 'Team',
-      description:
-        'Meet our talented team of hairstylists, colorists, and beauty professionals.',
-    },
-  },
-  {
     path: 'testimonials',
     loadComponent: () =>
       import('./pages/testimonials/testimonials.component').then((m) => m.TestimonialsComponent),
