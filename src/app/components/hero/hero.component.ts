@@ -154,7 +154,7 @@ export class HeroComponent {
     title: 'Your Style, Our Passion',
     subtitle: 'Hair | Skin | Nails | Makeup',
     description: 'Vadodara\'s premium unisex salon offering expert haircuts, hair color, styling, skin care, nails, and makeup services. Beardo Award Winner.',
-    image: '/assets/images/hero-bg.webp',
+    image: '/assets/images/hero-bg.svg',
     ctaText: 'Book Your Appointment',
     ctaLink: '/appointment',
   });

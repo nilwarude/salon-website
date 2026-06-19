@@ -32,13 +32,13 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
 })
 export class TeamComponent {
   teamMembers: TeamMember[] = [
-    { image: '/assets/images/team/team-1.webp', name: 'Isabella Rossi', role: 'Master Stylist & Creative Director', bio: '15+ years of expertise in precision cutting and creative coloring.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
-    { image: '/assets/images/team/team-2.webp', name: 'James Mitchell', role: 'Senior Colorist', bio: 'Specializing in balayage, ombre, and color correction.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
-    { image: '/assets/images/team/team-3.webp', name: 'Sophie Laurent', role: 'Bridal & Editorial Stylist', bio: 'Paris-trained stylist with editorial and bridal expertise.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
-    { image: '/assets/images/team/team-4.webp', name: 'David Park', role: 'Master Barber', bio: 'Expert in classic and contemporary men\'s grooming.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
-    { image: '/assets/images/team/team-5.webp', name: 'Maria Garcia', role: 'Senior Stylist', bio: 'Specializing in textured hair and curly cuts.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
-    { image: '/assets/images/team/team-6.webp', name: 'Alex Thompson', role: 'Color Specialist', bio: 'Expert in fashion colors and creative techniques.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
-    { image: '/assets/images/team/team-7.webp', name: 'Olivia Chen', role: 'Esthetician', bio: 'Specializing in skincare and facial treatments.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
-    { image: '/assets/images/team/team-8.webp', name: 'Ryan Brooks', role: 'Nail Artist', bio: 'Creative nail designs and premium manicures.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
+    { image: '/assets/images/team/team-1.svg', name: 'Isabella Rossi', role: 'Master Stylist & Creative Director', bio: '15+ years of expertise in precision cutting and creative coloring.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
+    { image: '/assets/images/team/team-2.svg', name: 'James Mitchell', role: 'Senior Colorist', bio: 'Specializing in balayage, ombre, and color correction.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
+    { image: '/assets/images/team/team-3.svg', name: 'Sophie Laurent', role: 'Bridal & Editorial Stylist', bio: 'Paris-trained stylist with editorial and bridal expertise.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
+    { image: '/assets/images/team/team-4.svg', name: 'David Park', role: 'Master Barber', bio: 'Expert in classic and contemporary men\'s grooming.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
+    { image: '/assets/images/team/team-5.svg', name: 'Maria Garcia', role: 'Senior Stylist', bio: 'Specializing in textured hair and curly cuts.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
+    { image: '/assets/images/team/team-6.svg', name: 'Alex Thompson', role: 'Color Specialist', bio: 'Expert in fashion colors and creative techniques.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
+    { image: '/assets/images/team/team-7.svg', name: 'Olivia Chen', role: 'Esthetician', bio: 'Specializing in skincare and facial treatments.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
+    { image: '/assets/images/team/team-8.svg', name: 'Ryan Brooks', role: 'Nail Artist', bio: 'Creative nail designs and premium manicures.', socials: [{ icon: 'f', url: '#' }, { icon: 'i', url: '#' }] },
   ];
 }
