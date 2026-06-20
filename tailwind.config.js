@@ -21,7 +21,7 @@ module.exports = {
           900: '#513C1A',
         },
         dark: {
-          DEFAULT: '#1A1A1A',
+          DEFAULT: '#111111',
           50: '#F2F2F2',
           100: '#E6E6E6',
           200: '#CCCCCC',
@@ -31,7 +31,7 @@ module.exports = {
           600: '#666666',
           700: '#4D4D4D',
           800: '#333333',
-          900: '#1A1A1A',
+          900: '#111111',
         },
         accent: {
           DEFAULT: '#8B5E3C',
