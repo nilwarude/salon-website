@@ -1,6 +1,8 @@
-import { Component, OnInit, Inject, PLATFORM_ID, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit, Inject, PLATFORM_ID, signal, OnDestroy } from '@angular/core';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
+import { Subject, filter, takeUntil } from 'rxjs';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
@@ -28,11 +30,16 @@ import { FooterComponent } from './layout/footer/footer.component';
     }
   `]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'Hairbar Unisex Salon';
   isBrowser = signal(false);
+  private destroy$ = new Subject<void>();
 
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: object,
+    private router: Router,
+    private viewportScroller: ViewportScroller
+  ) {
     if (isPlatformBrowser(this.platformId)) {
       this.isBrowser.set(true);
     }
@@ -51,5 +58,20 @@ export class AppComponent implements OnInit {
         });
       });
     }
+
+    // Scroll to top on every navigation
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(() => {
+        this.viewportScroller.scrollToPosition([0, 0]);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
