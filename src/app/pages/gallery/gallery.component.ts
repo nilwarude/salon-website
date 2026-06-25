@@ -1,11 +1,11 @@
 import { Component, signal, computed } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { GalleryCardComponent, GalleryItem } from '../../components/gallery-card/gallery-card.component';
+import type { GalleryItem } from '../../components/gallery-card/gallery-card.component';
 
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [NgClass, GalleryCardComponent],
+  imports: [NgClass],
   template: `
     <section class="relative pt-20 pb-10 bg-dark overflow-hidden">
       <div class="absolute inset-0 opacity-20" style="background: linear-gradient(135deg, #C8A96A 0%, transparent 50%, #C8A96A 100%);"></div>

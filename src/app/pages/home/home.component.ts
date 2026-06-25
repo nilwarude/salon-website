@@ -2,8 +2,8 @@ import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { ServiceCardComponent, ServiceItem } from '../../components/service-card/service-card.component';
-import { GalleryCardComponent, GalleryItem } from '../../components/gallery-card/gallery-card.component';
-import { TestimonialSliderComponent, Testimonial } from '../../components/testimonial-slider/testimonial-slider.component';
+import type { GalleryItem } from '../../components/gallery-card/gallery-card.component';
+import type { Testimonial } from '../../components/testimonial-slider/testimonial-slider.component';
 import { BlogCardComponent, BlogPost } from '../../components/blog-card/blog-card.component';
 import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.component';
 
@@ -13,8 +13,6 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
   imports: [
     HeroComponent,
     ServiceCardComponent,
-    GalleryCardComponent,
-    TestimonialSliderComponent,
     BlogCardComponent,
     CtaBannerComponent,
     RouterLink,
