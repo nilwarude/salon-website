@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://luxurysalon.com/api',
-  siteUrl: 'https://luxurysalon.com',
+  apiUrl: 'https://hairbar.in/api',
+  siteUrl: 'https://hairbar.in',
 };
