@@ -13,10 +13,11 @@ import { RouterLink } from '@angular/router';
           <!-- Brand -->
           <div class="lg:col-span-1">
             <a routerLink="/" class="inline-block mb-6">
-              <div class="font-serif text-2xl font-bold tracking-wider">
-                <span class="text-primary">✦</span> HAIRBAR
-                <span class="block text-xs tracking-[0.3em] font-sans font-light text-white/60">UNISEX SALON</span>
-              </div>
+              <img
+                src="/assets/images/logo.jpeg"
+                alt="Hairbar Unisex Salon"
+                class="h-14 w-auto brightness-0 invert"
+              />
             </a>
             <p class="text-white/60 text-sm leading-relaxed mb-6">
               Vadodara's premium unisex salon offering expert haircuts, hair color, styling, skin care, nails, and makeup services. Beardo Award Winner.

@@ -1,6 +1,12 @@
 import { Component, HostListener, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
+interface NavLink {
+  path: string;
+  label: string;
+  children?: { path: string; label: string }[];
+}
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -81,33 +87,61 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
               class="relative z-10"
               aria-label="Hairbar Unisex Salon Home"
             >
-              <div
-                class="font-serif text-2xl md:text-3xl font-bold tracking-wider transition-colors"
-                [class.text-dark]="isScrolled()"
-                [class.text-white]="!isScrolled()"
-              >
-                <span class="text-primary">✦</span> HAIRBAR
-                <span
-                  class="block text-xs tracking-[0.3em] font-sans font-light"
-                  [class]="isScrolled() ? 'text-dark-600' : 'text-white/80'"
-                >UNISEX SALON</span>
-              </div>
+              <img
+                src="/assets/images/logo.jpeg"
+                alt="Hairbar Unisex Salon"
+                class="h-12 md:h-14 w-auto transition-all duration-300"
+                [class.opacity-100]="true"
+              />
             </a>
 
             <!-- Desktop Navigation -->
             <ul class="hidden lg:flex items-center gap-8">
               @for (link of navLinks; track link.path) {
                 <li>
-                  <a
-                    [routerLink]="link.path"
-                    routerLinkActive="text-primary"
-                    [routerLinkActiveOptions]="{exact: true}"
-                    class="relative text-sm font-sans font-medium uppercase tracking-[0.15em] transition-colors gold-border-animate pb-1"
-                    [class.text-dark]="isScrolled()"
-                    [class.text-white]="!isScrolled()"
-                  >
-                    {{ link.label }}
-                  </a>
+                  @if (link.children) {
+                    <div class="relative group">
+                      <a
+                        [routerLink]="link.path"
+                        routerLinkActive="text-primary"
+                        [routerLinkActiveOptions]="{exact: true}"
+                        class="relative text-sm font-sans font-medium uppercase tracking-[0.15em] transition-colors gold-border-animate pb-1 inline-flex items-center gap-1"
+                        [class.text-dark]="isScrolled()"
+                        [class.text-white]="!isScrolled()"
+                      >
+                        {{ link.label }}
+                        <svg class="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                      </a>
+                      <!-- Dropdown -->
+                      <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform -translate-y-1 group-hover:translate-y-0">
+                        <div class="bg-white shadow-xl border border-dark/10 min-w-[200px] py-2">
+                          @for (child of link.children; track child.path) {
+                            <a
+                              [routerLink]="child.path"
+                              routerLinkActive="text-primary bg-primary/5"
+                              [routerLinkActiveOptions]="{exact: true}"
+                              class="block px-6 py-3 font-sans text-sm uppercase tracking-[0.1em] text-dark-700 hover:text-primary hover:bg-primary/5 transition-colors"
+                            >
+                              {{ child.label }}
+                            </a>
+                          }
+                        </div>
+                      </div>
+                    </div>
+                  } @else {
+                    <a
+                      [routerLink]="link.path"
+                      routerLinkActive="text-primary"
+                      [routerLinkActiveOptions]="{exact: true}"
+                      class="relative text-sm font-sans font-medium uppercase tracking-[0.15em] transition-colors gold-border-animate pb-1"
+                      [class.text-dark]="isScrolled()"
+                      [class.text-white]="!isScrolled()"
+                    >
+                      {{ link.label }}
+                    </a>
+                  }
                 </li>
               }
             </ul>
@@ -180,6 +214,19 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
                 >
                   {{ link.label }}
                 </a>
+                @if (link.children) {
+                  <div class="ml-4 mt-3 flex flex-col gap-3 border-l-2 border-primary/20 pl-4">
+                    @for (child of link.children; track child.path) {
+                      <a
+                        [routerLink]="child.path"
+                        (click)="closeMobileMenu()"
+                        class="text-dark/60 font-sans text-sm uppercase tracking-[0.1em] transition-colors hover:text-primary"
+                      >
+                        {{ child.label }}
+                      </a>
+                    }
+                  </div>
+                }
               </li>
             }
           </ul>
@@ -258,11 +305,19 @@ export class HeaderComponent {
   isScrolled = signal(false);
   mobileMenuOpen = signal(false);
 
-  navLinks = [
+  navLinks: NavLink[] = [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/services', label: 'Services' },
-    { path: '/gallery', label: 'Gallery' },
+    {
+      path: '/gallery',
+      label: 'Gallery',
+      children: [
+        { path: '/gallery', label: 'All Gallery' },
+        { path: '/gallery/groom', label: "Groom's Gallery" },
+        { path: '/gallery/bridal', label: 'Bridal Gallery' },
+      ],
+    },
     { path: '/pricing', label: 'Pricing' },
     { path: '/contact', label: 'Contact' },
   ];
