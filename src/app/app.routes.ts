@@ -102,6 +102,28 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'gallery/groom',
+    loadComponent: () =>
+      import('./pages/gallery/groom/groom.component').then((m) => m.GroomGalleryComponent),
+    title: "Groom's Gallery | Hairbar Unisex Salon",
+    data: {
+      title: "Groom's Gallery",
+      description:
+        "Explore our collection of grooming transformations for men at Hairbar Unisex Salon.",
+    },
+  },
+  {
+    path: 'gallery/bridal',
+    loadComponent: () =>
+      import('./pages/gallery/bridal/bridal.component').then((m) => m.BridalGalleryComponent),
+    title: 'Bridal Gallery | Hairbar Unisex Salon',
+    data: {
+      title: 'Bridal Gallery',
+      description:
+        'Discover our stunning bridal makeup and styling transformations at Hairbar Unisex Salon.',
+    },
+  },
+  {
     path: 'pricing',
     loadComponent: () =>
       import('./pages/pricing/pricing.component').then((m) => m.PricingComponent),
