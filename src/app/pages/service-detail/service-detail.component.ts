@@ -1,7 +1,7 @@
-import { Component, signal, computed, inject, OnInit } from '@angular/core';
+import { Component, signal, inject, OnInit } from '@angular/core';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { MetaService } from '../../services/meta.service';
 
 export interface ServiceDetail {
   slug: string;
@@ -239,7 +239,8 @@ export interface ServiceDetail {
 })
 export class ServiceDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
-  
+  private metaService = inject(MetaService);
+
   expandedFaq = signal<number | null>(null);
 
   toggleFaq(index: number) {
@@ -431,6 +432,26 @@ export class ServiceDetailComponent implements OnInit {
       const slug = data['serviceSlug'] || 'mens-grooming';
       if (this.services[slug]) {
         this.service.set(this.services[slug]);
+        const svc = this.services[slug];
+
+        // Update meta tags
+        this.metaService.updateSeoData({
+          title: `${svc.title} | Hairbar Unisex Salon`,
+          description: svc.subtitle,
+          ogTitle: `${svc.title} | Hairbar Unisex Salon - Vadodara`,
+          ogDescription: svc.subtitle,
+        });
+
+        // BreadcrumbList structured data
+        this.metaService.addStructuredData({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://hairbar.in/' },
+            { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://hairbar.in/services' },
+            { '@type': 'ListItem', position: 3, name: svc.title, item: `https://hairbar.in/services/${slug}` },
+          ],
+        });
       }
     });
   }

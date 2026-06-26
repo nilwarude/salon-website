@@ -12,6 +12,9 @@
     "ssr:build": "ng build --configuration=production",
     "serve:ssr:salon-website": "node dist/salon-website/server/server.mjs",
     "prerender": "ng build --prerender",
+    "sitemap": "node scripts/generate-sitemap.js",
+    "build:seo": "npm run prerender && npm run sitemap",
+    "deploy": "node scripts/deploy-static.js && npm run sitemap",
     "test": "ng test",
     "lint": "ng lint",
     "analyze": "ng build --stats-json && webpack-bundle-analyzer dist/salon-website/stats.json"

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en-IN" dir="ltr">
 <head>
   <meta charset="utf-8">
   <title>Hairbar Unisex Salon | Hair, Skin, Nails & Makeup - Waghodiya Road, Vadodara</title>
@@ -28,6 +28,8 @@
   <meta property="og:title" content="Hairbar Unisex Salon | Hair, Skin, Nails & Makeup - Waghodiya Road, Vadodara">
   <meta property="og:description" content="Vadodara's premium unisex salon offering expert haircuts, hair color, styling, skin care, nails, and makeup services.">
   <meta property="og:image" content="/assets/images/og-image.svg">
+  <meta property="og:site_name" content="Hairbar Unisex Salon">
+  <meta property="og:locale" content="en_IN">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
@@ -35,6 +37,18 @@
   <meta property="twitter:title" content="Hairbar Unisex Salon | Hair, Skin, Nails & Makeup - Waghodiya Road, Vadodara">
   <meta property="twitter:description" content="Vadodara's premium unisex salon offering expert haircuts, hair color, styling, skin care, nails, and makeup services.">
   <meta property="twitter:image" content="/assets/images/og-image.svg">
+
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" />
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
@@ -64,6 +78,11 @@
       "addressCountry": "IN",
       "postalCode": "390025"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "22.3072",
+      "longitude": "73.1812"
+    },
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -76,7 +95,58 @@
       "https://facebook.com/hairbarsaloon",
       "https://instagram.com/hairbar.official"
     ],
-    "priceRange": "$$"
+    "priceRange": "$$",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Salon Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Men's Grooming",
+            "url": "https://hairbar.in/services/mens-grooming",
+            "description": "Premium men's grooming services including precision haircuts, beard styling, and facial treatments."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Hair Color & Highlights",
+            "url": "https://hairbar.in/services/hair-color",
+            "description": "Transformative hair color services using premium products for stunning, long-lasting results."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Hair Spa & Treatments",
+            "url": "https://hairbar.in/services/hair-spa",
+            "description": "Restorative hair spa treatments that revitalize and strengthen your hair from root to tip."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Facial Treatments",
+            "url": "https://hairbar.in/services/facial-treatment",
+            "description": "Rejuvenating facial treatments for glowing, radiant skin."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Bridal Makeup",
+            "url": "https://hairbar.in/services/bridal-makeup",
+            "description": "Comprehensive bridal makeup packages for your special day."
+          }
+        }
+      ]
+    }
   }
   </script>
 
