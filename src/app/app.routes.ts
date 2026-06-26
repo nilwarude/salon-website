@@ -146,6 +146,17 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'team',
+    loadComponent: () =>
+      import('./pages/team/team.component').then((m) => m.TeamComponent),
+    title: 'Our Team | Hairbar Unisex Salon',
+    data: {
+      title: 'Team',
+      description:
+        'Meet our expert team of stylists and beauty professionals at Hairbar Unisex Salon.',
+    },
+  },
+  {
     path: 'blog',
     loadComponent: () =>
       import('./pages/blog/blog.component').then((m) => m.BlogComponent),
@@ -176,6 +187,37 @@ export const routes: Routes = [
       title: 'Appointment',
       description:
         'Book your appointment at Hairbar Unisex Salon. Choose your service, stylist, and preferred time.',
+    },
+  },
+  // Legal Pages
+  {
+    path: 'privacy-policy',
+    loadComponent: () =>
+      import('./pages/privacy-policy/privacy-policy.component').then((m) => m.PrivacyPolicyComponent),
+    title: 'Privacy Policy | Hairbar Unisex Salon',
+    data: {
+      title: 'Privacy Policy',
+      description: 'Learn about how Hairbar Unisex Salon collects, uses, and protects your personal information.',
+    },
+  },
+  {
+    path: 'terms',
+    loadComponent: () =>
+      import('./pages/terms/terms.component').then((m) => m.TermsComponent),
+    title: 'Terms of Service | Hairbar Unisex Salon',
+    data: {
+      title: 'Terms of Service',
+      description: 'Review the terms and conditions for using Hairbar Unisex Salon services and website.',
+    },
+  },
+  {
+    path: 'cookie-policy',
+    loadComponent: () =>
+      import('./pages/cookie-policy/cookie-policy.component').then((m) => m.CookiePolicyComponent),
+    title: 'Cookie Policy | Hairbar Unisex Salon',
+    data: {
+      title: 'Cookie Policy',
+      description: 'Learn about how Hairbar Unisex Salon uses cookies on our website.',
     },
   },
   {

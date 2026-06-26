@@ -116,9 +116,9 @@ import { RouterLink } from '@angular/router';
               &copy; {{ currentYear }} Hairbar Unisex Salon. All rights reserved.
             </p>
             <div class="flex gap-6">
-              <a href="#" class="text-white/40 text-xs hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#" class="text-white/40 text-xs hover:text-primary transition-colors">Terms of Service</a>
-              <a href="#" class="text-white/40 text-xs hover:text-primary transition-colors">Cookie Policy</a>
+              <a routerLink="/privacy-policy" class="text-white/40 text-xs hover:text-primary transition-colors">Privacy Policy</a>
+              <a routerLink="/terms" class="text-white/40 text-xs hover:text-primary transition-colors">Terms of Service</a>
+              <a routerLink="/cookie-policy" class="text-white/40 text-xs hover:text-primary transition-colors">Cookie Policy</a>
             </div>
           </div>
         </div>
