@@ -1,4 +1,6 @@
-import { Component, input, inject, OnInit } from '@angular/core';
+import { Component, input, inject, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import Swiper from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { GoogleReviewsService, GoogleReview } from '../../services/google-reviews.service';
 
 @Component({
@@ -33,41 +35,54 @@ import { GoogleReviewsService, GoogleReview } from '../../services/google-review
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
-          @for (review of reviews(); track review.author + review.date) {
-            <div class="review-card" role="listitem">
-              <div class="flex items-center gap-3 mb-4">
-                <img
-                  [src]="review.authorPhoto"
-                  [alt]="review.author + ' profile photo'"
-                  class="w-12 h-12 rounded-full object-cover"
-                  loading="lazy"
-                />
-                <div>
-                  <p class="font-serif text-base text-dark">{{ review.author }}</p>
-                  <time class="text-dark/50 text-xs" [dateTime]="review.date">{{ review.relativeTime }}</time>
+        <div class="relative" #reviewsCarousel>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              @for (review of reviews(); track review.author + review.date) {
+                <div class="swiper-slide">
+                  <div class="review-card h-full" role="listitem">
+                    <div class="flex items-center gap-3 mb-4">
+                      <img
+                        [src]="review.authorPhoto"
+                        [alt]="review.author + ' profile photo'"
+                        class="w-12 h-12 rounded-full object-cover"
+                        loading="lazy"
+                      />
+                      <div>
+                        <p class="font-serif text-base text-dark">{{ review.author }}</p>
+                        <time class="text-dark/50 text-xs" [dateTime]="review.date">{{ review.relativeTime }}</time>
+                      </div>
+                    </div>
+                    <div class="flex mb-3" role="img" [attr.aria-label]="review.rating + ' out of 5 stars'">
+                      @for (star of [1, 2, 3, 4, 5]; track star) {
+                        <svg
+                          class="w-4 h-4"
+                          [class.text-primary]="star <= review.rating"
+                          [class.opacity-20]="star > review.rating"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          aria-hidden="true"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      }
+                    </div>
+                    <p class="text-dark/80 text-base leading-relaxed line-clamp-4">{{ review.comment }}</p>
+                  </div>
                 </div>
-              </div>
-              <div class="flex mb-3" role="img" [attr.aria-label]="review.rating + ' out of 5 stars'">
-                @for (star of [1, 2, 3, 4, 5]; track star) {
-                  <svg
-                    class="w-4 h-4"
-                    [class.text-primary]="star <= review.rating"
-                    [class.opacity-20]="star > review.rating"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                }
-              </div>
-              <p class="text-dark/80 text-base leading-relaxed line-clamp-4">{{ review.comment }}</p>
+              }
             </div>
-          }
+
+            <!-- Navigation Arrows -->
+            <div class="swiper-button-next text-primary"></div>
+            <div class="swiper-button-prev text-primary"></div>
+
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
         </div>
 
-        <div class="text-center mt-12" data-aos="fade-up">
+        <div class="text-center mt-8" data-aos="fade-up">
           <a
             [href]="googleReviewsUrl()"
             target="_blank"
@@ -115,12 +130,6 @@ import { GoogleReviewsService, GoogleReview } from '../../services/google-review
       border-color: rgba(200, 169, 106, 0.3);
       transform: translateY(-2px);
     }
-    .line-clamp-4 {
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
     .loading-spinner {
       width: 2rem;
       height: 2rem;
@@ -134,11 +143,13 @@ import { GoogleReviewsService, GoogleReview } from '../../services/google-review
     }
   `],
 })
-export class GoogleReviewsComponent implements OnInit {
+export class GoogleReviewsComponent implements OnInit, AfterViewInit {
   private reviewsService = inject(GoogleReviewsService);
 
   businessName = input('Hairbar Unisex Salon');
   googleReviewsUrl = input('https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID');
+
+  @ViewChild('reviewsCarousel', { static: true }) carouselRef!: ElementRef;
 
   reviews = this.reviewsService.reviews;
   loading = this.reviewsService.loading;
@@ -148,5 +159,36 @@ export class GoogleReviewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.reviewsService.fetchReviews();
+  }
+
+  ngAfterViewInit() {
+    if (this.reviews().length > 0) {
+      new Swiper(this.carouselRef.nativeElement.querySelector('.swiper'), {
+        modules: [Navigation, Pagination, Autoplay],
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 24,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+    }
   }
 }
