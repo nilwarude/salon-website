@@ -120,5 +120,23 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.focus-ring': {
+          '&:focus-visible': {
+            outline: '2px solid #C8A96A',
+            outlineOffset: '2px',
+          },
+        },
+        '.focus-ring-dark': {
+          '&:focus-visible': {
+            outline: '2px solid #C8A96A',
+            outlineOffset: '2px',
+          },
+        },
+      }
+      addUtilities(newUtilities, ['responsive'])
+    }
+  ],
 };

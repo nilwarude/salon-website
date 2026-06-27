@@ -177,19 +177,22 @@ import type { GalleryItem } from '../../components/gallery-card/gallery-card.com
       position: relative;
       overflow: hidden;
       cursor: pointer;
+      height: auto;
     }
 
     .masonry-item img {
       display: block;
       width: 100%;
+      height: auto;
+      object-fit: cover;
     }
 
     .masonry-tall {
-      grid-row: span 2;
+      break-inside: avoid-column;
     }
 
     .masonry-wide {
-      grid-column: span 2;
+      break-inside: avoid-column;
     }
   `]
 })

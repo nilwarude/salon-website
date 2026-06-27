@@ -205,6 +205,50 @@ $accent: #8B5E3C;
   }
 }
 
+/* Focus Visible polyfill support */
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: $primary-gold;
+  color: white;
+  padding: 8px 16px;
+  z-index: 1000;
+  transition: top 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  border-radius: 0 0 4px 4px;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary, .btn-secondary, .btn-dark {
+    border: 2px solid currentColor;
+  }
+  
+  .review-card, .card-premium {
+    border: 2px solid $primary-gold;
+  }
+}
+
 /* Tailwind Utilities Layer */
 @layer utilities {
   .text-balance {
@@ -252,7 +296,10 @@ $accent: #8B5E3C;
 
 /* Swiper Overrides */
 .swiper {
-  @apply overflow-visible pb-12;
+  @apply pb-12;
+}
+.swiper-wrapper {
+  @apply flex;
 }
 
 .swiper-pagination-bullet {

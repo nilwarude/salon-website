@@ -2,6 +2,7 @@ import { Component, input } from '@angular/core';
 
 export interface GalleryItem {
   image: string;
+  imageWebp?: string;
   title: string;
   category: string;
 }
@@ -15,12 +16,16 @@ export interface GalleryItem {
       data-aos="fade-up"
     >
       <div class="aspect-[4/5] overflow-hidden">
-        <img
-          [src]="item().image"
-          [alt]="item().title"
-          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          loading="lazy"
-        />
+        <picture>
+          <source [srcset]="item().imageWebp || item().image" type="image/webp">
+          <source [srcset]="item().image" type="image/jpeg">
+          <img
+            [src]="item().image"
+            [alt]="item().title + ' - ' + item().category + ' gallery photo'"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+          />
+        </picture>
       </div>
 
       <!-- Overlay on Hover -->
