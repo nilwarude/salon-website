@@ -168,6 +168,11 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'stories',
+    redirectTo: 'testimonials',
+    pathMatch: 'full',
+  },
+  {
     path: 'blog/:slug',
     loadComponent: () =>
       import('./pages/blog-detail/blog-detail.component').then((m) => m.BlogDetailComponent),

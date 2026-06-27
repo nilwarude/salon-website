@@ -174,6 +174,8 @@ export class FooterComponent {
     { path: '/about', label: 'About Us' },
     { path: '/services', label: 'Services' },
     { path: '/gallery', label: 'Gallery' },
+    { path: '/testimonials', label: 'Testimonials' },
+    { path: '/blog', label: 'Blog' },
     { path: '/pricing', label: 'Pricing' },
     { path: '/contact', label: 'Contact' },
   ];

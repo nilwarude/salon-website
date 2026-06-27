@@ -318,6 +318,14 @@ export class HeaderComponent {
         { path: '/gallery/bridal', label: 'Bridal Gallery' },
       ],
     },
+    {
+      path: '/testimonials',
+      label: 'Stories',
+      children: [
+        { path: '/testimonials', label: 'Testimonials' },
+        { path: '/blog', label: 'Blog' },
+      ],
+    },
     { path: '/pricing', label: 'Pricing' },
     { path: '/contact', label: 'Contact' },
   ];
