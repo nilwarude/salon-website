@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { TestimonialSliderComponent, Testimonial } from '../../components/testimonial-slider/testimonial-slider.component';
 import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.component';
+import { GoogleReviewsComponent } from '../../components/google-reviews/google-reviews.component';
 
 @Component({
   selector: 'app-testimonials',
   standalone: true,
-  imports: [TestimonialSliderComponent, CtaBannerComponent],
+  imports: [TestimonialSliderComponent, CtaBannerComponent, GoogleReviewsComponent],
   template: `
     <section class="relative pt-32 pb-20 bg-dark overflow-hidden">
       <div class="absolute inset-0 opacity-20" style="background: linear-gradient(135deg, #C8A96A 0%, transparent 50%, #C8A96A 100%);"></div>
@@ -18,8 +19,22 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
         </div>
       </div>
     </section>
-    <section class="section-padding">
+
+    <!-- Google Reviews Widget -->
+    <section class="section-padding bg-white">
       <div class="container-custom">
+        <app-google-reviews />
+      </div>
+    </section>
+
+    <!-- Local Testimonials -->
+    <section class="section-padding bg-section">
+      <div class="container-custom">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <p class="section-subtitle" data-aos="fade-up">Featured Reviews</p>
+          <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Client Testimonials</h2>
+          <div class="gold-divider mt-6" data-aos="fade-up" data-aos-delay="200"></div>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           @for (testimonial of testimonials; track testimonial.name) {
             <app-testimonial-slider [testimonial]="testimonial" />

@@ -23,17 +23,22 @@
       "zone.js"
     ],
     "tsConfig": "src/tsconfig.app.json",
-    "assets": [
-      {
-        "glob": "**/*",
-        "input": "public"
-      },
-      {
-        "glob": "**/*",
-        "input": "src/assets",
-        "output": "/assets"
-      }
-    ],
+"assets": [
+       {
+         "glob": "**/*",
+         "input": "public"
+       },
+       {
+         "glob": "**/*",
+         "input": "src/assets",
+         "output": "/assets"
+       },
+       {
+         "glob": "service-worker.js",
+         "input": "src",
+         "output": "/"
+       }
+     ],
     "styles": [
       "src/styles.scss",
       "node_modules/aos/dist/aos.css",
@@ -145,22 +150,28 @@
           },
           "defaultConfiguration": "development"
         },
-        "prerender": {
-          "builder": "@angular-devkit/build-angular:prerender",
-          "options": {
-            "routes": [
-              "/",
-              "/about",
-              "/services",
-              "/gallery",
-              "/pricing",
-              "/team",
-              "/testimonials",
-              "/blog",
-              "/contact",
-              "/appointment"
-            ]
-          },
+"prerender": {
+           "builder": "@angular-devkit/build-angular:prerender",
+           "options": {
+             "routes": [
+               "/",
+               "/about",
+               "/services",
+               "/gallery",
+               "/pricing",
+               "/team",
+               "/testimonials",
+               "/blog",
+               "/blog/2025-hair-color-trends",
+               "/blog/ultimate-hair-care-guide",
+               "/blog/bridal-hair-planning-guide",
+               "/blog/winter-hair-protection",
+               "/blog/balayage-guide",
+               "/blog/holiday-hairstyles",
+               "/contact",
+               "/appointment"
+             ]
+           },
           "configurations": {
             "production": {
               "browserTarget": "salon-website:build:production",

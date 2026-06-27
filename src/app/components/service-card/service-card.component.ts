@@ -8,6 +8,7 @@ export interface ServiceItem {
   duration: string;
   price: string;
   image?: string;
+  imageWebp?: string;
   link?: string;
   category?: string;
 }
@@ -23,12 +24,15 @@ export interface ServiceItem {
     >
       <!-- Image Section -->
       <div class="relative aspect-[4/3] overflow-hidden">
-        <img
-          [src]="service().image || '/assets/images/gallery/gallery-1.svg'"
-          [alt]="service().title"
-          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          loading="lazy"
-        />
+        <picture>
+          <source [srcset]="service().imageWebp || service().image || '/assets/images/gallery/gallery-1.svg'" type="image/webp">
+          <img
+            [src]="service().image || '/assets/images/gallery/gallery-1.svg'"
+            [alt]="service().title + ' - ' + service().category + ' service image'"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+          />
+        </picture>
         <!-- Overlay on hover -->
         <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/90 via-[#111111]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         
@@ -41,10 +45,16 @@ export interface ServiceItem {
 
         <!-- Hover Actions -->
         <div class="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-          <a [routerLink]="service().link || '/services'" class="flex-1 bg-white text-dark text-center font-sans text-xs uppercase tracking-[0.15em] py-2.5 hover:bg-primary hover:text-white transition-colors duration-300">
+          <a 
+            [routerLink]="service().link || '/services'" 
+            class="flex-1 bg-white text-dark text-center font-sans text-xs uppercase tracking-[0.15em] py-2.5 hover:bg-primary hover:text-white transition-colors duration-300 focus-ring"
+            [attr.aria-label]="'Learn more about ' + service().title">
             Learn More
           </a>
-          <a routerLink="/appointment" class="flex-1 bg-primary text-white text-center font-sans text-xs uppercase tracking-[0.15em] py-2.5 hover:bg-primary-600 transition-colors duration-300">
+          <a 
+            routerLink="/appointment" 
+            class="flex-1 bg-primary text-white text-center font-sans text-xs uppercase tracking-[0.15em] py-2.5 hover:bg-primary-600 transition-colors duration-300 focus-ring"
+            [attr.aria-label]="'Book appointment for ' + service().title">
             Book Now
           </a>
         </div>

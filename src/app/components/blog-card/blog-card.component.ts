@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 
 export interface BlogPost {
   image: string;
+  imageWebp?: string;
   title: string;
   excerpt: string;
   date: string;
@@ -18,12 +19,18 @@ export interface BlogPost {
     <div class="group" data-aos="fade-up">
       <div class="relative overflow-hidden mb-5">
         <div class="aspect-[16/10] overflow-hidden">
-          <img
-            [src]="post().image"
-            [alt]="post().title"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            loading="lazy"
-          />
+          <picture>
+            <source [srcset]="post().imageWebp || post().image" type="image/webp">
+            <source [srcset]="post().image" type="image/jpeg">
+            <img
+              [src]="post().image"
+              [alt]="post().title + ' - ' + post().category + ' article'"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              loading="lazy"
+              width="400"
+              height="250"
+            />
+          </picture>
         </div>
         <div class="absolute top-4 left-4">
           <span class="bg-primary text-white text-xs font-sans uppercase tracking-[0.15em] px-3 py-1">{{ post().category }}</span>
@@ -33,9 +40,9 @@ export interface BlogPost {
         <span class="text-xs text-dark/50 font-sans">{{ post().date }}</span>
         <h3 class="font-serif text-lg text-dark mt-2 mb-3 group-hover:text-primary transition-colors">{{ post().title }}</h3>
         <p class="text-dark/60 text-sm leading-relaxed mb-4">{{ post().excerpt }}</p>
-        <a [routerLink]="'/blog/' + post().slug" class="inline-flex items-center gap-2 text-primary text-sm font-sans uppercase tracking-[0.15em] group/link">
+        <a [routerLink]="'/blog/' + post().slug" class="inline-flex items-center gap-2 text-primary text-sm font-sans uppercase tracking-[0.15em] focus-ring group/link" [attr.aria-label]="'Read more about ' + post().title">
           Read More
-          <svg class="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
           </svg>
         </a>

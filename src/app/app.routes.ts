@@ -168,6 +168,16 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'blog/:slug',
+    loadComponent: () =>
+      import('./pages/blog-detail/blog-detail.component').then((m) => m.BlogDetailComponent),
+    title: 'Blog Post | Hairbar Unisex Salon',
+    data: {
+      title: 'Blog Post',
+      description: 'Read our latest articles on hair care tips, styling trends, and salon news.',
+    },
+  },
+  {
     path: 'contact',
     loadComponent: () =>
       import('./pages/contact/contact.component').then((m) => m.ContactComponent),
