@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FormService, AppointmentFormData } from '../../services/form.service';
+import { PaymentService } from '../../services/payment.service';
 
 @Component({
   selector: 'app-appointment',
@@ -24,13 +25,23 @@ import { FormService, AppointmentFormData } from '../../services/form.service';
       letter-spacing: 0.15em; transition: all 0.3s ease;
     }
     .btn-whatsapp:hover { background: #1DA851; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
+    .btn-payment {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 1rem 2rem; background: #00BEEF; color: white;
+      font-family: 'Poppins', sans-serif; font-weight: 500;
+      font-size: 0.875rem; text-transform: uppercase;
+      letter-spacing: 0.15em; transition: all 0.3s ease;
+    }
+    .btn-payment:hover { background: #0099CC; box-shadow: 0 4px 20px rgba(0, 190, 239, 0.3); }
   `]
 })
 export class AppointmentComponent {
   private formService = inject(FormService);
+  private paymentService = inject(PaymentService);
 
   submitted = signal(false);
   submitting = signal(false);
+  paying = signal(false);
 
   formData: AppointmentFormData = {
     firstName: '',
@@ -70,6 +81,42 @@ export class AppointmentComponent {
         this.submitting.set(false);
       },
     });
+  }
+
+  async payWithRazorpay(): Promise<void> {
+    if (this.submitting() || this.paying()) return;
+    
+    this.paying.set(true);
+    const success = await this.paymentService.openPaymentModal({
+      amount: this.getServicePrice(this.formData.service),
+      currency: 'INR',
+      name: 'Hairbar Unisex Salon',
+      description: `${this.formData.service} - ${this.formData.date} at ${this.formData.time}`,
+      prefill: {
+        name: `${this.formData.firstName} ${this.formData.lastName}`,
+        email: this.formData.email,
+        contact: this.formData.phone,
+      },
+    });
+
+    if (success) {
+      this.onSubmit();
+    }
+    this.paying.set(false);
+  }
+
+  private getServicePrice(service: string): number {
+    const prices: Record<string, number> = {
+      'Haircut and Styling': 599,
+      'Hair Color and Highlights': 1499,
+      'Blowouts and Hair Spa': 799,
+      'Hair Treatments': 1299,
+      'Bridal and Party Makeup': 2999,
+      "Men's Grooming": 499,
+      'Skin and Facial Care': 1199,
+      'Nails and Manicure': 399,
+    };
+    return prices[service] || 599;
   }
 
   bookViaWhatsApp(): void {

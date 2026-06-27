@@ -153,7 +153,7 @@
 "prerender": {
            "builder": "@angular-devkit/build-angular:prerender",
            "options": {
-             "routes": [
+"routes": [
                "/",
                "/about",
                "/services",
@@ -162,14 +162,10 @@
                "/team",
                "/testimonials",
                "/blog",
-               "/blog/2025-hair-color-trends",
-               "/blog/ultimate-hair-care-guide",
-               "/blog/bridal-hair-planning-guide",
-               "/blog/winter-hair-protection",
-               "/blog/balayage-guide",
-               "/blog/holiday-hairstyles",
                "/contact",
-               "/appointment"
+               "/appointment",
+               "/wedding-season",
+               "/festival-offers"
              ]
            },
           "configurations": {

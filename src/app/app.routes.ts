@@ -199,6 +199,28 @@ export const routes: Routes = [
         'Book your appointment at Hairbar Unisex Salon. Choose your service, stylist, and preferred time.',
     },
   },
+  {
+    path: 'wedding-season',
+    loadComponent: () =>
+      import('./pages/wedding-season/wedding-season.component').then((m) => m.WeddingSeasonComponent),
+    title: 'Wedding Season Special | Hairbar Unisex Salon',
+    data: {
+      title: 'Wedding Season',
+      description:
+        'Special bridal packages for wedding season. Book now for premium makeup and styling services.',
+    },
+  },
+  {
+    path: 'festival-offers',
+    loadComponent: () =>
+      import('./pages/festival-offers/festival-offers.component').then((m) => m.FestivalOffersComponent),
+    title: 'Festival Offers | Hairbar Unisex Salon',
+    data: {
+      title: 'Festival Offers',
+      description:
+        'Celebrate festivals with special offers on makeup, hair styling, and spa treatments.',
+    },
+  },
   // Legal Pages
   {
     path: 'privacy-policy',
