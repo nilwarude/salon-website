@@ -296,7 +296,10 @@ $accent: #8B5E3C;
 
 /* Swiper Overrides */
 .swiper {
-  @apply overflow-visible pb-12;
+  @apply pb-12;
+}
+.swiper-wrapper {
+  @apply flex;
 }
 
 .swiper-pagination-bullet {
