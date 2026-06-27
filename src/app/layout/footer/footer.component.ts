@@ -14,9 +14,9 @@ import { RouterLink } from '@angular/router';
           <div class="lg:col-span-1">
             <a routerLink="/" class="inline-block mb-6">
               <img
-                src="/assets/images/logo.jpeg"
+                src="/assets/images/logo.png"
                 alt="Hairbar Unisex Salon"
-                class="h-14 w-auto brightness-0 invert"
+                class="h-14 w-auto"
               />
             </a>
             <p class="text-white/60 text-sm leading-relaxed mb-6">

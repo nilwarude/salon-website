@@ -11,7 +11,7 @@ import { GoogleReviewsService, GoogleReview } from '../../services/google-review
       @if (reviews().length > 0) {
         <div class="reviews-header">
           <div class="flex items-center gap-3 mb-6">
-            <img src="/assets/images/logo.jpeg" alt="Hairbar Salon Logo" class="w-12 h-12 rounded-full" loading="lazy" />
+            <img src="/assets/images/logo.png" alt="Hairbar Salon Logo" class="w-12 h-12 rounded-full" loading="lazy" />
             <div>
               <h3 class="font-serif text-2xl text-dark">{{ businessName() }}</h3>
               <div class="flex items-center gap-2">
