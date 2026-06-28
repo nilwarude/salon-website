@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { UiStateService } from '../../services/ui-state.service';
 
 interface NavLink {
   path: string;
@@ -64,7 +65,9 @@ interface NavLink {
 
       <!-- Main Navigation -->
       <nav
-        class="transition-all duration-300 py-4 border-b border-primary/20"
+        class="transition-all duration-300 border-b border-primary/20"
+        [class.py-4]="!uiState.headerCollapsed()"
+        [class.py-2]="uiState.headerCollapsed()"
       >
         <div class="container-custom">
           <div class="flex items-center justify-between">
@@ -77,7 +80,9 @@ interface NavLink {
               <img
                 src="/assets/images/logo.png"
                 alt="Hairbar Unisex Salon"
-                class="h-12 md:h-14 w-auto transition-all duration-300"
+                class="w-auto transition-all duration-300"
+                [class.h-12]="!uiState.headerCollapsed()"
+                [class.h-8]="uiState.headerCollapsed()"
               />
             </a>
 
@@ -287,7 +292,8 @@ interface NavLink {
   `]
 })
 export class HeaderComponent {
-  mobileMenuOpen = signal(false);
+  uiState = UiStateService.instance;
+  mobileMenuOpen = this.uiState.mobileMenuOpen;
   dropdownOpen = signal<string | null>(null);
 
   navLinks: NavLink[] = [
@@ -317,15 +323,19 @@ export class HeaderComponent {
 
   toggleMobileMenu() {
     this.mobileMenuOpen.update((prev) => !prev);
-    if (this.mobileMenuOpen()) {
+    const isOpen = this.mobileMenuOpen();
+    if (isOpen) {
       document.body.style.overflow = 'hidden';
+      this.uiState.headerCollapsed.set(true);
     } else {
       document.body.style.overflow = '';
+      this.uiState.headerCollapsed.set(false);
     }
   }
 
   closeMobileMenu() {
     this.mobileMenuOpen.set(false);
     document.body.style.overflow = '';
+    this.uiState.headerCollapsed.set(false);
   }
 }
