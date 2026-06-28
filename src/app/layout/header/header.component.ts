@@ -1,4 +1,4 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 interface NavLink {
@@ -13,23 +13,18 @@ interface NavLink {
   imports: [RouterLink, RouterLinkActive],
   template: `
 <header
-      class="fixed top-0 left-0 right-0 transition-all duration-300"
-      [class.bg-white]="isScrolled()"
-      [class.bg-dark]="mobileMenuOpen()"
-      [class.shadow-premium]="isScrolled()"
-      [class.bg-transparent]="!isScrolled() && !mobileMenuOpen()"
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-dark"
     >
       <!-- Top Bar -->
       <div
-        class="hidden lg:block border-b transition-all duration-300"
-        [class]="isScrolled() ? 'border-primary/20' : 'border-white/20'"
+        class="hidden lg:block border-b transition-all duration-300 border-primary/20"
       >
         <div class="container-custom">
           <div class="flex items-center justify-between h-10">
             <div class="flex items-center gap-6">
               <a
                 href="tel:+917861935860"
-                class="text-xs tracking-wider transition-colors text-white"
+                class="text-xs tracking-wider text-white transition-colors"
               >
                 <span class="font-sans">+91 78619 35860</span>
               </a>
@@ -69,9 +64,7 @@ interface NavLink {
 
       <!-- Main Navigation -->
       <nav
-        class="transition-all duration-300"
-        [class.py-2]="isScrolled()"
-        [class.py-4]="!isScrolled()"
+        class="transition-all duration-300 py-4 border-b border-primary/20"
       >
         <div class="container-custom">
           <div class="flex items-center justify-between">
@@ -80,7 +73,7 @@ interface NavLink {
               routerLink="/"
               aria-label="Hairbar Unisex Salon Home"
             >
-            <div class="rounded-lg bg-primary/10 p-1 transition-all duration-300" [class.bg-transparent]="!isScrolled()">
+            <div class="rounded-lg p-1 transition-all duration-300 bg-primary/10">
               <img
                 src="/assets/images/logo.png"
                 alt="Hairbar Unisex Salon"
@@ -160,26 +153,26 @@ interface NavLink {
     </header>
 
     <!-- Dropdown Menus (outside header to escape stacking context) -->
-    @for (link of navLinks; track link.path) {
+@for (link of navLinks; track link.path) {
       @if (link.children && dropdownOpen() === link.path) {
         <div
           class="fixed top-[72px] left-1/2 -translate-x-1/2 mt-2 opacity-100 visible transition-all duration-200 transform translate-y-0 z-[1000]"
           (mouseenter)="dropdownOpen.set(link.path)"
           (mouseleave)="dropdownOpen.set(null)"
         >
-          <div class="bg-white shadow-xl border border-dark/10 min-w-[200px] py-2">
-            @for (child of link.children; track child.path) {
-              <a
-                [routerLink]="child.path"
-                routerLinkActive="text-primary bg-primary/5"
-                [routerLinkActiveOptions]="{exact: true}"
-                class="block px-6 py-3 font-sans text-sm uppercase tracking-[0.1em] text-dark-700 hover:text-primary hover:bg-primary/5 transition-colors"
-              >
-                {{ child.label }}
-              </a>
-            }
-          </div>
-        </div>
+           <div class="bg-dark border border-primary/20 min-w-[200px] py-2">
+             @for (child of link.children; track child.path) {
+               <a
+                 [routerLink]="child.path"
+                 routerLinkActive="text-primary bg-primary/5"
+                 [routerLinkActiveOptions]="{exact: true}"
+                 class="block px-6 py-3 font-sans text-sm uppercase tracking-[0.1em] text-white/80 hover:text-primary hover:bg-primary/10 transition-colors"
+               >
+                 {{ child.label }}
+               </a>
+             }
+           </div>
+         </div>
       }
     }
 
@@ -214,7 +207,7 @@ interface NavLink {
                     <a
                       [routerLink]="child.path"
                       (click)="closeMobileMenu()"
-                      class="text-dark/60 font-sans text-sm uppercase tracking-[0.1em] transition-colors hover:text-primary"
+                      class="text-dark-600 font-sans text-sm uppercase tracking-[0.1em] transition-colors hover:text-primary"
                     >
                       {{ child.label }}
                     </a>
@@ -295,7 +288,6 @@ interface NavLink {
   `]
 })
 export class HeaderComponent {
-  isScrolled = signal(false);
   mobileMenuOpen = signal(false);
   dropdownOpen = signal<string | null>(null);
 
@@ -323,11 +315,6 @@ export class HeaderComponent {
     { path: '/pricing', label: 'Pricing' },
     { path: '/contact', label: 'Contact' },
   ];
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.isScrolled.set(window.scrollY > 50);
-  }
 
   toggleMobileMenu() {
     this.mobileMenuOpen.update((prev) => !prev);
