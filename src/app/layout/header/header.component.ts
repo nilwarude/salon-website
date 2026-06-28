@@ -72,14 +72,13 @@ interface NavLink {
             <a
               routerLink="/"
               aria-label="Hairbar Unisex Salon Home"
+              class="duration-300"
             >
-            <div class="rounded-lg p-1 transition-all duration-300 bg-primary/10">
               <img
                 src="/assets/images/logo.png"
                 alt="Hairbar Unisex Salon"
                 class="h-12 md:h-14 w-auto transition-all duration-300"
               />
-            </div>
             </a>
 
 <!-- Desktop Navigation -->
