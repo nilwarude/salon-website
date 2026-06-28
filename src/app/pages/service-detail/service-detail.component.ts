@@ -16,6 +16,7 @@ export interface ServiceDetail {
   duration: string;
   price: string;
   category: string;
+  gender?: 'men' | 'women' | 'unisex';
 }
 
 @Component({
@@ -51,6 +52,10 @@ export interface ServiceDetail {
           <div class="max-w-3xl">
             <p class="font-sans text-sm text-primary uppercase tracking-[0.25em] mb-4" data-aos="fade-up">
               {{ service().category }}
+              <span class="ml-3 text-xs font-sans uppercase tracking-[0.15em] px-3 py-1 inline-block"
+                [ngClass]="getServiceGenderBadgeClass()">
+                {{ getServiceGenderBadgeLabel() }}
+              </span>
             </p>
             <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-4" data-aos="fade-up" data-aos-delay="100">
               {{ service().title }}
@@ -254,6 +259,7 @@ export class ServiceDetailComponent implements OnInit {
       subtitle: 'Premium grooming services including precision haircuts, beard styling, and facial treatments designed for the modern man.',
       heroImage: '/assets/images/services/mens-grooming-hero.jpg',
       category: 'Grooming',
+      gender: 'men',
       duration: '30 - 60 min',
       price: '₹349+',
       overview: 'Experience the ultimate in men\'s grooming at Hairbar Unisex Salon. Our expert barbers and stylists specialize in precision haircuts, beard shaping, and facial treatments tailored to your unique style. We use premium products and techniques to ensure you leave looking and feeling your absolute best. From classic cuts to modern styles, we\'ve got you covered.',
@@ -289,8 +295,9 @@ export class ServiceDetailComponent implements OnInit {
       subtitle: 'Transformative color services using premium products for stunning, long-lasting results.',
       heroImage: '/assets/images/services/hair-color-hero.jpg',
       category: 'Color',
+      gender: 'unisex',
       duration: '1 - 3 hrs',
-      price: '₹999+',
+      price: '₹3,500',
       overview: 'Discover your perfect shade at Hairbar Unisex Salon. Our expert colorists use premium L\'Oreal and Wella products to create stunning, dimensional hair color that lasts. Whether you want natural highlights, bold fashion colors, or a complete color transformation, we bring your vision to life with precision and care.',
       benefits: [
         'Premium L\'Oreal & Wella color products',
@@ -324,8 +331,9 @@ export class ServiceDetailComponent implements OnInit {
       subtitle: 'Restorative treatments that revitalize and strengthen your hair from root to tip.',
       heroImage: '/assets/images/services/hair-spa-hero.jpg',
       category: 'Treatments',
+      gender: 'unisex',
       duration: '45 - 90 min',
-      price: '₹699+',
+      price: '₹1,500',
       overview: 'Treat your hair to the luxury it deserves with our comprehensive hair spa and treatment services. From deep conditioning to keratin smoothing, our restorative treatments address every hair concern. Using premium products and advanced techniques, we revitalize damaged hair, reduce frizz, and restore natural shine and vitality.',
       benefits: [
         'Deep conditioning & nourishment',
@@ -359,8 +367,9 @@ export class ServiceDetailComponent implements OnInit {
       subtitle: 'Rejuvenating facial treatments for glowing, radiant skin tailored to your skin type.',
       heroImage: '/assets/images/services/facial-hero.jpg',
       category: 'Skin Care',
+      gender: 'unisex',
       duration: '45 - 75 min',
-      price: '₹599+',
+      price: '₹2,500+',
       overview: 'Achieve radiant, glowing skin with our premium facial treatments at Hairbar Unisex Salon. Our experienced estheticians use top-quality products to address your specific skin concerns. From deep cleansing facials to anti-aging treatments, we customize every experience for your unique skin type and goals.',
       benefits: [
         'Deep cleansing & exfoliation',
@@ -394,6 +403,7 @@ export class ServiceDetailComponent implements OnInit {
       subtitle: 'Comprehensive bridal makeup packages for your special day, including trial sessions.',
       heroImage: '/assets/images/services/bridal-hero.jpg',
       category: 'Bridal',
+      gender: 'women',
       duration: '2 - 4 hrs',
       price: '₹2,999+',
       overview: 'Your wedding day deserves nothing but the best. At Hairbar Unisex Salon, our bridal makeup artists create stunning looks that photograph beautifully and last all day. From traditional to contemporary styles, we work closely with you to design the perfect bridal look. Our packages include trial sessions, complete bridal party styling, and on-location services.',
@@ -426,6 +436,22 @@ export class ServiceDetailComponent implements OnInit {
   };
 
   service = signal<ServiceDetail>(this.services['mens-grooming']);
+
+  getServiceGenderBadgeLabel(): string {
+    const g = this.service().gender;
+    if (!g) return '';
+    return g === 'men' ? 'For Him' : g === 'women' ? 'For Her' : 'Unisex';
+  }
+
+  getServiceGenderBadgeClass(): { [key: string]: boolean } {
+    const g = this.service().gender;
+    if (!g) return { hidden: true };
+    return {
+      'bg-white/20': g === 'unisex',
+      'bg-blue-500/80': g === 'men',
+      'bg-pink-500/80': g === 'women',
+    };
+  }
 
   ngOnInit() {
     this.route.data.subscribe((data) => {

@@ -1,5 +1,6 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 export interface ServiceItem {
   icon: string;
@@ -11,12 +12,13 @@ export interface ServiceItem {
   imageWebp?: string;
   link?: string;
   category?: string;
+  gender?: 'men' | 'women' | 'unisex';
 }
 
 @Component({
   selector: 'app-service-card',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   template: `
     <div
       class="group card-premium overflow-hidden bg-white relative"
@@ -36,12 +38,16 @@ export interface ServiceItem {
         <!-- Overlay on hover -->
         <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/90 via-[#111111]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         
-        <!-- Category Badge -->
-        <div class="absolute top-4 left-4">
-          <span class="bg-primary text-white text-xs font-sans uppercase tracking-[0.1em] px-3 py-1">
-            {{ service().category || 'Service' }}
-          </span>
-        </div>
+         <!-- Category Badge -->
+         <div class="absolute top-4 left-4 flex flex-col gap-2">
+           <span class="bg-primary text-white text-xs font-sans uppercase tracking-[0.1em] px-3 py-1">
+             {{ service().category || 'Service' }}
+           </span>
+           <span class="text-white text-xs font-sans uppercase tracking-[0.1em] px-3 py-1"
+             [ngClass]="getBadgeClass()">
+             {{ getBadgeLabel() }}
+           </span>
+         </div>
 
         <!-- Hover Actions -->
         <div class="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
@@ -71,6 +77,11 @@ export interface ServiceItem {
             <h3 class="font-serif text-base sm:text-lg text-dark group-hover:text-primary transition-colors duration-300 truncate">
               {{ service().title }}
             </h3>
+            <!-- Gender label -->
+            <p class="text-[10px] font-sans uppercase tracking-wider mt-1"
+              [ngClass]="getGenderClass()">
+              {{ getGenderLabel() }}
+            </p>
             <!-- Gold accent line -->
             <div class="w-8 h-0.5 bg-primary mt-1.5 sm:mt-2 transition-all duration-500 group-hover:w-16"></div>
           </div>
@@ -127,4 +138,36 @@ export interface ServiceItem {
 })
 export class ServiceCardComponent {
   service = input.required<ServiceItem>();
+
+  getBadgeLabel(): string {
+    const g = this.service().gender;
+    if (!g) return '';
+    return g === 'men' ? 'For Him' : g === 'women' ? 'For Her' : 'Unisex';
+  }
+
+  getBadgeClass(): { [key: string]: boolean } {
+    const g = this.service().gender;
+    if (!g) return { hidden: true };
+    return {
+      'bg-dark/80': g === 'unisex',
+      'bg-blue-600': g === 'men',
+      'bg-pink-600': g === 'women',
+    };
+  }
+
+  getGenderLabel(): string {
+    const g = this.service().gender;
+    if (!g) return '';
+    return g === 'men' ? 'For Him' : g === 'women' ? 'For Her' : 'Unisex';
+  }
+
+  getGenderClass(): { [key: string]: boolean } {
+    const g = this.service().gender;
+    if (!g) return {};
+    return {
+      'text-dark/50': g === 'unisex',
+      'text-blue-600': g === 'men',
+      'text-pink-600': g === 'women',
+    };
+  }
 }

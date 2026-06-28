@@ -107,16 +107,16 @@ export class AppointmentComponent {
 
   private getServicePrice(service: string): number {
     const prices: Record<string, number> = {
-      'Haircut and Styling': 599,
-      'Hair Color and Highlights': 1499,
-      'Blowouts and Hair Spa': 799,
-      'Hair Treatments': 1299,
-      'Bridal and Party Makeup': 2999,
-      "Men's Grooming": 499,
-      'Skin and Facial Care': 1199,
-      'Nails and Manicure': 399,
+      'Haircut and Styling': 500,
+      'Hair Color and Highlights': 3000,
+      'Blowouts and Hair Spa': 1500,
+      'Hair Treatments': 1500,
+      'Bridal and Party Makeup': 4999,
+      "Men's Grooming": 180,
+      'Skin and Facial Care': 2500,
+      'Nails and Manicure': 600,
     };
-    return prices[service] || 599;
+    return prices[service] || 500;
   }
 
   bookViaWhatsApp(): void {
