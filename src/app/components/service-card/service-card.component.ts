@@ -23,7 +23,7 @@ export interface ServiceItem {
       data-aos="fade-up"
     >
       <!-- Image Section -->
-      <div class="relative aspect-[4/3] overflow-hidden">
+      <div class="relative aspect-square sm:aspect-[4/3] overflow-hidden">
         <picture>
           <source [srcset]="service().imageWebp || service().image || '/assets/images/gallery/gallery-1.svg'" type="image/webp">
           <img
@@ -61,37 +61,37 @@ export interface ServiceItem {
       </div>
 
       <!-- Content Section -->
-      <div class="p-6">
+      <div class="p-4 sm:p-6">
         <!-- Icon + Title Row -->
-        <div class="flex items-start gap-4 mb-4">
-          <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-primary/10 group-hover:bg-primary/20 transition-colors duration-500">
-            <span class="text-xl">{{ service().icon }}</span>
+        <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center bg-primary/10 group-hover:bg-primary/20 transition-colors duration-500">
+            <span class="text-lg sm:text-xl">{{ service().icon }}</span>
           </div>
           <div class="flex-1 min-w-0">
-            <h3 class="font-serif text-lg text-dark group-hover:text-primary transition-colors duration-300 truncate">
+            <h3 class="font-serif text-base sm:text-lg text-dark group-hover:text-primary transition-colors duration-300 truncate">
               {{ service().title }}
             </h3>
             <!-- Gold accent line -->
-            <div class="w-10 h-0.5 bg-primary mt-2 transition-all duration-500 group-hover:w-16"></div>
+            <div class="w-8 h-0.5 bg-primary mt-1.5 sm:mt-2 transition-all duration-500 group-hover:w-16"></div>
           </div>
         </div>
 
         <!-- Description -->
-        <p class="text-dark/60 text-sm leading-relaxed mb-5 line-clamp-2">
+        <p class="text-dark/60 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5 line-clamp-2">
           {{ service().description }}
         </p>
 
         <!-- Meta Info -->
-        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-          <div class="flex items-center gap-2 text-sm text-dark/50">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="flex items-center justify-between pt-3 sm:pt-4 border-t border-gray-100">
+          <div class="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-dark/50">
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
             <span>{{ service().duration }}</span>
           </div>
           <div class="text-right">
-            <span class="text-xs text-dark/40 font-sans">Starting at</span>
-            <p class="text-primary font-serif text-lg font-bold">{{ service().price }}</p>
+            <span class="text-[10px] sm:text-xs text-dark/40 font-sans">Starting at</span>
+            <p class="text-primary font-serif text-base sm:text-lg font-bold">{{ service().price }}</p>
           </div>
         </div>
       </div>

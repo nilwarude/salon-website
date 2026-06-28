@@ -56,7 +56,7 @@ import type { GalleryItem } from '../../components/gallery-card/gallery-card.com
                 <img
                   [src]="item.image"
                   [alt]="item.title"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  class="w-full h-auto transition-transform duration-700 group-hover:scale-105 sm:h-full sm:object-cover"
                   loading="lazy"
                 />
                 <!-- Overlay -->
