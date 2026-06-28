@@ -156,27 +156,27 @@ interface NavLink {
       </nav>
     </header>
 
-    <!-- Dropdown Menus (outside header to escape stacking context) -->
+     <!-- Dropdown Menus (outside header to escape stacking context) -->
 @for (link of navLinks; track link.path) {
       @if (link.children && dropdownOpen() === link.path) {
         <div
-          class="fixed top-[72px] left-1/2 -translate-x-1/2 mt-2 opacity-100 visible transition-all duration-200 transform translate-y-0 z-[1000]"
+          class="fixed top-[60px] left-1/2 -translate-x-1/2 mt-2 opacity-100 visible transition-all duration-200 transform translate-y-0 z-[1000]"
           (mouseenter)="dropdownOpen.set(link.path)"
           (mouseleave)="dropdownOpen.set(null)"
         >
-           <div class="bg-dark border border-primary/20 min-w-[200px] py-2">
-             @for (child of link.children; track child.path) {
-               <a
-                 [routerLink]="child.path"
-                 routerLinkActive="text-primary bg-primary/5"
-                 [routerLinkActiveOptions]="{exact: true}"
-                 class="block px-6 py-3 font-sans text-sm uppercase tracking-[0.1em] text-white/80 hover:text-primary hover:bg-primary/10 transition-colors"
-               >
-                 {{ child.label }}
-               </a>
-             }
+           <div class="bg-dark border border-primary/20 min-w-[160px] py-1.5">
+              @for (child of link.children; track child.path) {
+                <a
+                  [routerLink]="child.path"
+                  routerLinkActive="text-primary bg-primary/5"
+                  [routerLinkActiveOptions]="{exact: true}"
+                  class="block px-4 py-2 font-sans text-xs uppercase tracking-[0.1em] text-white/80 hover:text-primary hover:bg-primary/10 transition-colors"
+                >
+                  {{ child.label }}
+                </a>
+              }
            </div>
-         </div>
+        </div>
       }
     }
 
@@ -190,28 +190,28 @@ interface NavLink {
 
     <!-- Mobile Menu Drawer -->
     <div
-      class="fixed top-0 right-0 h-full w-80 bg-white z-[1000] lg:hidden transform transition-transform duration-300 shadow-2xl"
+      class="fixed top-0 right-0 h-full w-72 bg-white z-[1000] lg:hidden transform transition-transform duration-300 shadow-2xl"
       [class.translate-x-0]="mobileMenuOpen()"
       [class.translate-x-full]="!mobileMenuOpen()"
     >
-      <div class="pt-24 px-8">
-        <ul class="flex flex-col gap-6">
+      <div class="pt-20 px-6">
+        <ul class="flex flex-col gap-4">
           @for (link of navLinks; track link.path) {
             <li>
               <a
                 [routerLink]="link.path"
                 (click)="closeMobileMenu()"
-                class="text-dark font-serif text-2xl tracking-wide transition-colors hover:text-primary block"
+                class="text-dark font-serif text-lg tracking-wide transition-colors hover:text-primary block"
               >
                 {{ link.label }}
               </a>
               @if (link.children) {
-                <div class="ml-4 mt-3 flex flex-col gap-3 border-l-2 border-primary/20 pl-4">
+                <div class="ml-4 mt-2 flex flex-col gap-2 border-l-2 border-primary/20 pl-3">
                   @for (child of link.children; track child.path) {
                     <a
                       [routerLink]="child.path"
                       (click)="closeMobileMenu()"
-                      class="text-dark-600 font-sans text-sm uppercase tracking-[0.1em] transition-colors hover:text-primary"
+                      class="text-dark-600 font-sans text-xs uppercase tracking-[0.1em] transition-colors hover:text-primary"
                     >
                       {{ child.label }}
                     </a>
@@ -222,7 +222,7 @@ interface NavLink {
           }
         </ul>
 
-        <div class="mt-10 pt-8 border-t border-dark/10">
+        <div class="mt-8 pt-6 border-t border-dark/10">
           <a
             routerLink="/appointment"
             class="btn-primary w-full text-center"
@@ -231,7 +231,7 @@ interface NavLink {
             Book Appointment
           </a>
 
-          <div class="mt-6 space-y-3">
+          <div class="mt-5 space-y-3">
             <a href="tel:+917861935860" class="flex items-center gap-3 text-dark-600 hover:text-primary transition-colors">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
