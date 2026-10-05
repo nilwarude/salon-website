@@ -6,13 +6,12 @@ import { Subject, filter, takeUntil } from 'rxjs';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { WhatsAppButtonComponent } from './components/whatsapp-button/whatsapp-button.component';
-import { PromoPopupComponent } from './components/promo-popup/promo-popup.component';
 import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, WhatsAppButtonComponent, PromoPopupComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, WhatsAppButtonComponent],
   template: `
     <div class="app-wrapper min-h-screen flex flex-col">
       <app-header />
@@ -23,9 +22,6 @@ import { environment } from '../environments/environment';
 
       <!-- WhatsApp Floating Button -->
       <app-whatsapp-button />
-
-      <!-- Promotional Popup -->
-      <app-promo-popup />
 
       <!-- Mobile Sticky Booking Bar -->
       <div class="mobile-sticky-bar">
