@@ -165,7 +165,10 @@
                "/contact",
                "/appointment",
                "/wedding-season",
-               "/festival-offers"
+               "/festival-offers",
+               "/privacy-policy",
+               "/terms",
+               "/cookie-policy"
              ]
            },
           "configurations": {
