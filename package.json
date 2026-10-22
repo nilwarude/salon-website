@@ -17,14 +17,18 @@
     "deploy": "node scripts/deploy-static.js && npm run sitemap",
     "test": "ng test",
     "lint": "ng lint",
-    "analyze": "ng build --stats-json && webpack-bundle-analyzer dist/salon-website/stats.json"
+    "analyze": "ng build --stats-json && webpack-bundle-analyzer dist/salon-website/stats.json",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev"
   },
   "dependencies": {
     "@angular/animations": "^19.0.0",
+    "@angular/cdk": "^19.0.0",
     "@angular/common": "^19.0.0",
     "@angular/compiler": "^19.0.0",
     "@angular/core": "^19.0.0",
     "@angular/forms": "^19.0.0",
+    "@angular/material": "^19.0.0",
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/platform-server": "^19.0.0",
@@ -46,6 +50,7 @@
     "postcss": "^8.4.38",
     "postcss-loader": "^8.1.1",
     "tailwindcss": "^3.4.4",
-    "typescript": "~5.6.0"
+    "typescript": "~5.6.0",
+    "wrangler": "^4.105.0"
   }
 }
