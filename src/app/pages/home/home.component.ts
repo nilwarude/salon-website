@@ -6,6 +6,7 @@ import type { GalleryItem } from '../../components/gallery-card/gallery-card.com
 import type { Testimonial } from '../../components/testimonial-slider/testimonial-slider.component';
 import { BlogCardComponent, BlogPost } from '../../components/blog-card/blog-card.component';
 import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.component';
+import { UiStateService } from '../../services/ui-state.service';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,7 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
   ],
   template: `
     <!-- Hero Section -->
-    <app-hero />
+    <app-hero [mobileMenuOpen]="uiState.mobileMenuOpen()" />
 
     <!-- Why Choose Us - Premium Section -->
     <section class="section-padding bg-white relative overflow-hidden">
@@ -68,15 +69,15 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
     <!-- Services Section - Luxury Cards -->
     <section class="section-padding bg-section">
       <div class="container-custom">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <p class="section-subtitle" data-aos="fade-up">Our Services</p>
-          <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Premium Treatments</h2>
-          <div class="gold-divider mt-6" data-aos="fade-up" data-aos-delay="200"></div>
-          <p class="text-dark/60 mt-6 leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <p class="font-sans text-xs text-dark/70 uppercase tracking-[0.15em] mb-2" data-aos="fade-up">Our Services</p>
+          <h2 class="font-serif text-2xl md:text-3xl text-dark font-bold mb-3" data-aos="fade-up" data-aos-delay="100">Premium Treatments</h2>
+          <div class="w-12 h-0.5 bg-primary mx-auto mb-4" data-aos="fade-up" data-aos-delay="200"></div>
+          <p class="text-dark/60 text-sm leading-relaxed" data-aos="fade-up" data-aos-delay="300">
             From precision haircuts to bridal makeup, we offer a complete range of hair, skin, nails, and makeup services for men and women.
           </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           @for (service of services; track service.title) {
             <app-service-card [service]="service" />
           }
@@ -250,6 +251,7 @@ import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.compo
   `,
 })
 export class HomeComponent {
+  uiState = UiStateService.instance;
   expandedFaq = signal<number | null>(null);
 
   toggleFaq(index: number) {
@@ -267,24 +269,26 @@ export class HomeComponent {
 
   services: ServiceItem[] = [
     {
-      icon: '✂️',
-      title: 'Precision Haircuts',
-      description: 'Expert cuts tailored to your face shape and lifestyle, executed with master-level precision for men and women.',
-      duration: '45 min',
-      price: '₹399+',
-      image: '/assets/images/gallery/gallery-2.svg',
-      link: '/services/mens-grooming',
-      category: 'Hair',
+      icon: '👰',
+      title: 'Bridal & Party Makeup',
+      description: 'Comprehensive bridal and party makeup packages for your special day, including trials.',
+      duration: '3 hrs',
+      price: '₹2,999+',
+      image: '/assets/images/gallery/gallery-3.svg',
+      link: '/services/bridal-makeup',
+      category: 'Bridal',
+      gender: 'women',
     },
     {
       icon: '🎨',
       title: 'Hair Color & Highlights',
       description: 'Transformative color services using premium products for stunning, long-lasting results.',
       duration: '2 hrs',
-      price: '₹999+',
+      price: '₹3,500',
       image: '/assets/images/gallery/gallery-1.svg',
       link: '/services/hair-color',
       category: 'Color',
+      gender: 'unisex',
     },
     {
       icon: '💫',
@@ -295,26 +299,29 @@ export class HomeComponent {
       image: '/assets/images/gallery/gallery-4.svg',
       link: '/services',
       category: 'Styling',
+      gender: 'unisex',
     },
     {
       icon: '💎',
       title: 'Hair Treatments & Spa',
       description: 'Restorative treatments that revitalize and strengthen your hair from root to tip.',
       duration: '1 hr',
-      price: '₹699+',
+      price: '₹1,500',
       image: '/assets/images/gallery/gallery-7.svg',
       link: '/services/hair-spa',
       category: 'Treatments',
+      gender: 'unisex',
     },
     {
-      icon: '👰',
-      title: 'Bridal & Party Makeup',
-      description: 'Comprehensive bridal and party makeup packages for your special day, including trials.',
-      duration: '3 hrs',
-      price: '₹2,999+',
-      image: '/assets/images/gallery/gallery-3.svg',
-      link: '/services/bridal-makeup',
-      category: 'Bridal',
+      icon: '✂️',
+      title: 'Precision Haircuts',
+      description: 'Expert cuts tailored to your face shape and lifestyle, executed with master-level precision for men and women.',
+      duration: '45 min',
+      price: '₹399+',
+      image: '/assets/images/gallery/gallery-2.svg',
+      link: '/services/mens-grooming',
+      category: 'Hair',
+      gender: 'unisex',
     },
     {
       icon: '🧔',
@@ -325,6 +332,7 @@ export class HomeComponent {
       image: '/assets/images/gallery/gallery-8.svg',
       link: '/services/mens-grooming',
       category: 'Grooming',
+      gender: 'men',
     },
   ];
 

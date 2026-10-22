@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 export interface HeroSlide {
@@ -37,7 +37,11 @@ export interface HeroSlide {
           <div class="max-w-3xl">
             <!-- Subtitle -->
             <p
-              class="font-sans text-sm md:text-base text-primary uppercase tracking-[0.25em] mb-4"
+              class="font-sans text-sm md:text-base text-primary uppercase tracking-[0.25em] mb-4 transition-all duration-300"
+              [class.text-xs]="mobileMenuOpen()"
+              [class.md:text-xs]="mobileMenuOpen()"
+              [class.tracking-[0.2em]]="mobileMenuOpen()"
+              [class.mb-2]="mobileMenuOpen()"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -46,7 +50,11 @@ export interface HeroSlide {
 
             <!-- Title -->
             <h1
-              class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-display text-white font-bold leading-tight mb-6"
+              class="font-serif text-4xl sm:text-5xl md:text-6xl text-white font-bold leading-tight mb-6 transition-all duration-300"
+              [class.text-3xl]="mobileMenuOpen()"
+              [class.sm:text-4xl]="mobileMenuOpen()"
+              [class.md:text-5xl]="mobileMenuOpen()"
+              [class.mb-4]="mobileMenuOpen()"
               data-aos="fade-up"
               data-aos-delay="400"
             >
@@ -55,14 +63,19 @@ export interface HeroSlide {
 
             <!-- Gold Divider -->
             <div
-              class="w-20 h-0.5 bg-primary mb-6"
+              class="w-20 h-0.5 bg-primary mb-6 transition-all duration-300"
+              [class.w-12]="mobileMenuOpen()"
+              [class.mb-3]="mobileMenuOpen()"
               data-aos="fade-up"
               data-aos-delay="500"
             ></div>
 
             <!-- Description -->
             <p
-              class="text-white/80 text-base md:text-lg max-w-xl leading-relaxed mb-8"
+              class="text-white/80 text-base md:text-lg max-w-xl leading-relaxed mb-8 transition-all duration-300"
+              [class.text-sm]="mobileMenuOpen()"
+              [class.md:text-base]="mobileMenuOpen()"
+              [class.mb-4]="mobileMenuOpen()"
               data-aos="fade-up"
               data-aos-delay="600"
             >
@@ -71,19 +84,26 @@ export interface HeroSlide {
 
             <!-- CTA Buttons -->
             <div
-              class="flex flex-col sm:flex-row gap-4"
+              class="flex flex-col sm:flex-row gap-4 transition-all duration-300"
+              [class.gap-2]="mobileMenuOpen()"
               data-aos="fade-up"
               data-aos-delay="800"
             >
               <a
                 [routerLink]="slide().ctaLink"
-                class="btn-primary text-sm px-10 py-4"
+                class="btn-primary-hero text-sm px-10 py-4 transition-all duration-300"
+                [class.text-xs]="mobileMenuOpen()"
+                [class.px-5]="mobileMenuOpen()"
+                [class.py-2]="mobileMenuOpen()"
               >
                 {{ slide().ctaText }}
               </a>
               <a
                 routerLink="/gallery"
-                class="btn-secondary border-white text-white hover:bg-white hover:text-dark text-sm px-10 py-4"
+                class="btn-secondary-hero border-white text-white hover:bg-white hover:text-dark text-sm px-10 py-4 transition-all duration-300"
+                [class.text-xs]="mobileMenuOpen()"
+                [class.px-5]="mobileMenuOpen()"
+                [class.py-2]="mobileMenuOpen()"
               >
                 View Gallery
               </a>
@@ -105,44 +125,44 @@ export interface HeroSlide {
       display: block;
     }
 
-    .btn-primary {
+    .btn-primary-hero {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem 2.5rem;
+      padding: 0.625rem 1.5rem;
       background: #C8A96A;
       color: white;
       font-family: 'Poppins', sans-serif;
       font-weight: 500;
-      font-size: 0.875rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       transition: all 0.3s ease;
     }
 
-    .btn-primary:hover {
+    .btn-primary-hero:hover {
       background: #A8833E;
       box-shadow: 0 4px 20px rgba(200, 169, 106, 0.3);
       transform: translateY(-2px);
     }
 
-    .btn-secondary {
+    .btn-secondary-hero {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem 2.5rem;
+      padding: 0.625rem 1.5rem;
       border: 2px solid white;
       color: white;
       font-family: 'Poppins', sans-serif;
       font-weight: 500;
-      font-size: 0.875rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       transition: all 0.3s ease;
       background: transparent;
     }
 
-    .btn-secondary:hover {
+    .btn-secondary-hero:hover {
       background: white;
       color: #1A1A1A;
       transform: translateY(-2px);
@@ -158,4 +178,5 @@ export class HeroComponent {
     ctaText: 'Book Your Appointment',
     ctaLink: '/appointment',
   });
+  mobileMenuOpen = input.required<boolean>();
 }

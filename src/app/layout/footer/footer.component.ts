@@ -13,10 +13,11 @@ import { RouterLink } from '@angular/router';
           <!-- Brand -->
           <div class="lg:col-span-1">
             <a routerLink="/" class="inline-block mb-6">
-              <div class="font-serif text-2xl font-bold tracking-wider">
-                <span class="text-primary">✦</span> HAIRBAR
-                <span class="block text-xs tracking-[0.3em] font-sans font-light text-white/60">UNISEX SALON</span>
-              </div>
+              <img
+                src="/assets/images/logo.png"
+                alt="Hairbar Unisex Salon"
+                class="h-14 w-auto"
+              />
             </a>
             <p class="text-white/60 text-sm leading-relaxed mb-6">
               Vadodara's premium unisex salon offering expert haircuts, hair color, styling, skin care, nails, and makeup services. Beardo Award Winner.
@@ -115,9 +116,9 @@ import { RouterLink } from '@angular/router';
               &copy; {{ currentYear }} Hairbar Unisex Salon. All rights reserved.
             </p>
             <div class="flex gap-6">
-              <a href="#" class="text-white/40 text-xs hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#" class="text-white/40 text-xs hover:text-primary transition-colors">Terms of Service</a>
-              <a href="#" class="text-white/40 text-xs hover:text-primary transition-colors">Cookie Policy</a>
+              <a routerLink="/privacy-policy" class="text-white/40 text-xs hover:text-primary transition-colors">Privacy Policy</a>
+              <a routerLink="/terms" class="text-white/40 text-xs hover:text-primary transition-colors">Terms of Service</a>
+              <a routerLink="/cookie-policy" class="text-white/40 text-xs hover:text-primary transition-colors">Cookie Policy</a>
             </div>
           </div>
         </div>
@@ -173,6 +174,8 @@ export class FooterComponent {
     { path: '/about', label: 'About Us' },
     { path: '/services', label: 'Services' },
     { path: '/gallery', label: 'Gallery' },
+    { path: '/testimonials', label: 'Testimonials' },
+    { path: '/blog', label: 'Blog' },
     { path: '/pricing', label: 'Pricing' },
     { path: '/contact', label: 'Contact' },
   ];

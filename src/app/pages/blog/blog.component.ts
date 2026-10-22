@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { BlogCardComponent, BlogPost } from '../../components/blog-card/blog-card.component';
+import { MetaService } from '../../services/meta.service';
 
 @Component({
   selector: 'app-blog',
@@ -28,7 +29,9 @@ import { BlogCardComponent, BlogPost } from '../../components/blog-card/blog-car
     </section>
   `,
 })
-export class BlogComponent {
+export class BlogComponent implements OnInit {
+  private metaService = inject(MetaService);
+
   blogPosts: BlogPost[] = [
     { image: '/assets/images/blog/blog-1.svg', title: '2025 Hair Color Trends: What\'s In This Season', excerpt: 'Discover the hottest hair color trends taking over salons this season, from lived-in brunettes to vibrant coppers.', date: 'January 15, 2025', category: 'Trends', slug: '2025-hair-color-trends' },
     { image: '/assets/images/blog/blog-2.svg', title: 'The Ultimate Guide to Hair Care at Home', excerpt: 'Expert tips and product recommendations for maintaining salon-fresh hair between appointments.', date: 'January 10, 2025', category: 'Care Tips', slug: 'ultimate-hair-care-guide' },
@@ -37,4 +40,23 @@ export class BlogComponent {
     { image: '/assets/images/blog/blog-5.svg', title: 'The Art of Balayage: Everything You Need to Know', excerpt: 'Learn about the balayage technique, maintenance, and why it\'s the most requested coloring service.', date: 'December 20, 2024', category: 'Color', slug: 'balayage-guide' },
     { image: '/assets/images/blog/blog-6.svg', title: 'Top 10 Hairstyles for the Holiday Season', excerpt: 'From elegant updos to glamorous waves, find your perfect holiday party look.', date: 'December 15, 2024', category: 'Styling', slug: 'holiday-hairstyles' },
   ];
+
+  ngOnInit(): void {
+    this.metaService.updateSeoData({
+      title: 'Blog | Hairbar Unisex Salon',
+      description: 'Read our latest articles on hair care tips, styling trends, and salon news from Hairbar Unisex Salon.',
+      ogTitle: 'Hairbar Salon Blog | Hair Care Tips & Trends',
+      ogDescription: 'Expert tips, trends, and stories from Hairbar Unisex Salon. Discover hair care guides, bridal planning, and styling inspiration.',
+    });
+
+    // BreadcrumbList structured data
+    this.metaService.addStructuredData({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://hairbar.in/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://hairbar.in/blog' },
+      ],
+    });
+  }
 }
