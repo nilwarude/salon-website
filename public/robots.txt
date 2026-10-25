@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /search/
 
-Sitemap: https://hairbar.in/sitemap.xml
+# Crawl-delay
+Crawl-delay: 10
+
+# Sitemaps
+Sitemap: https://hairbarsalon.in/sitemap.xml

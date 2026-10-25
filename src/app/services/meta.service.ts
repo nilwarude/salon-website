@@ -22,7 +22,7 @@ export interface SeoData {
 export class MetaService {
   private siteName = 'Hairbar Unisex Salon';
   private defaultImage = '/assets/images/og-image.svg';
-  private baseUrl = 'https://hairbar.in';
+  private baseUrl = 'https://hairbarsalon.in';
 
   constructor(
     private title: Title,
