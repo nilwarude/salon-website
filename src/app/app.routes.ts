@@ -215,6 +215,47 @@ export const routes: Routes = [
         'Special bridal packages for wedding season. Book now for premium makeup and styling services.',
     },
   },
+  // Local SEO Service Pages
+  {
+    path: 'haircut-and-styling-vadodara',
+    loadComponent: () =>
+      import('./pages/local-seo/haircut-styling-vadodara/haircut-styling-vadodara.component').then((m) => m.HaircutStylingVadodaraComponent),
+    title: 'Haircut & Styling Services in Vadodara | HairBar Unisex Salon',
+    data: {
+      title: 'Haircut & Styling Vadodara',
+      description: 'Expert haircuts and styling for men and women at HairBar Unisex Salon Vadodara. Precision cuts, modern styles, and personalized consultations on Waghodia Road.',
+    },
+  },
+  {
+    path: 'hair-colour-vadodara',
+    loadComponent: () =>
+      import('./pages/local-seo/hair-colour-vadodara/hair-colour-vadodara.component').then((m) => m.HairColourVadodaraComponent),
+    title: 'Hair Color & Highlights in Vadodara | HairBar Unisex Salon',
+    data: {
+      title: 'Hair Color Vadodara',
+      description: 'Professional hair coloring services in Vadodara using L\'Oreal products. Balayage, highlights, global color, and color correction at HairBar Salon.',
+    },
+  },
+  {
+    path: 'hair-spa-vadodara',
+    loadComponent: () =>
+      import('./pages/local-seo/hair-spa-vadodara/hair-spa-vadodara.component').then((m) => m.HairSpaVadodaraComponent),
+    title: 'Hair Spa & Treatments in Vadodara | HairBar Unisex Salon',
+    data: {
+      title: 'Hair Spa Vadodara',
+      description: 'Premium hair spa treatments in Vadodara for hair fall, damage, and dryness. Keratin, hair botox, and revitalizing therapies at HairBar Salon.',
+    },
+  },
+  {
+    path: 'bridal-makeup-vadodara',
+    loadComponent: () =>
+      import('./pages/local-seo/bridal-makeup-vadodara/bridal-makeup-vadodara.component').then((m) => m.BridalMakeupVadodaraComponent),
+    title: 'Bridal Makeup & Hairstyling in Vadodara | HairBar Unisex Salon',
+    data: {
+      title: 'Bridal Makeup Vadodara',
+      description: 'Complete bridal makeup packages in Vadodara for Gujarati and North Indian weddings. Expert artists, premium products, and personalized consultations.',
+    },
+  },
   {
     path: 'festival-offers',
     loadComponent: () =>
@@ -258,8 +299,14 @@ export const routes: Routes = [
     },
   },
   {
+    path: '404',
+    loadComponent: () =>
+      import('./pages/not-found/not-found.component').then((m) => m.NotFoundComponent),
+    title: 'Page Not Found | HairBar Unisex Salon',
+  },
+  {
     path: '**',
-    redirectTo: '',
+    redirectTo: '404',
     pathMatch: 'full',
   },
 ];

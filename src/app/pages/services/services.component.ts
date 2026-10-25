@@ -89,6 +89,73 @@ import { PricingCardComponent, PricingTier } from '../../components/pricing-card
       </div>
     </section>
 
+    <!-- Local SEO Section -->
+    <section class="section-padding bg-section">
+      <div class="container-custom">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <p class="section-subtitle" data-aos="fade-up">Vadodara Services</p>
+          <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Popular Services in Vadodara</h2>
+          <div class="gold-divider mt-6" data-aos="fade-up" data-aos-delay="200"></div>
+          <p class="text-dark/60 mt-6 leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+            Discover our most sought-after services specifically designed for the Vadodara community
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white p-6 rounded-2xl shadow-premium" data-aos="fade-up">
+            <div class="text-3xl mb-3">✂️</div>
+            <h3 class="font-serif text-lg text-dark mb-2">Haircut & Styling Vadodara</h3>
+            <p class="text-dark/60 text-sm mb-4">Expert precision cuts and modern styles for men and women</p>
+            <a routerLink="/haircut-and-styling-vadodara" class="text-primary text-sm font-medium hover:underline">
+              Explore Service →
+            </a>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-premium" data-aos="fade-up" data-aos-delay="100">
+            <div class="text-3xl mb-3">🎨</div>
+            <h3 class="font-serif text-lg text-dark mb-2">Hair Color Vadodara</h3>
+            <p class="text-dark/60 text-sm mb-4">Professional coloring with L'Oreal products for vibrant results</p>
+            <a routerLink="/hair-colour-vadodara" class="text-primary text-sm font-medium hover:underline">
+              Explore Service →
+            </a>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-premium" data-aos="fade-up" data-aos-delay="200">
+            <div class="text-3xl mb-3">💎</div>
+            <h3 class="font-serif text-lg text-dark mb-2">Hair Spa Vadodara</h3>
+            <p class="text-dark/60 text-sm mb-4">Revitalizing treatments for hair fall, damage, and dryness</p>
+            <a routerLink="/hair-spa-vadodara" class="text-primary text-sm font-medium hover:underline">
+              Explore Service →
+            </a>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-premium" data-aos="fade-up" data-aos-delay="300">
+            <div class="text-3xl mb-3">👰</div>
+            <h3 class="font-serif text-lg text-dark mb-2">Bridal Makeup Vadodara</h3>
+            <p class="text-dark/60 text-sm mb-4">Complete bridal packages for Gujarati and North Indian weddings</p>
+            <a routerLink="/bridal-makeup-vadodara" class="text-primary text-sm font-medium hover:underline">
+              Explore Service →
+            </a>
+          </div>
+        </div>
+
+        <div class="text-center mt-12" data-aos="fade-up">
+          <p class="text-dark/50 text-sm mb-4">Looking for other services in Vadodara?</p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <a routerLink="/services/mens-grooming" class="px-4 py-2 bg-white border border-dark/10 text-dark text-sm hover:bg-primary hover:text-white hover:border-primary transition-all">
+              Men's Grooming Vadodara
+            </a>
+            <a routerLink="/services/facial-treatment" class="px-4 py-2 bg-white border border-dark/10 text-dark text-sm hover:bg-primary hover:text-white hover:border-primary transition-all">
+              Facial Treatment Vadodara
+            </a>
+            <a routerLink="/wedding-season" class="px-4 py-2 bg-white border border-dark/10 text-dark text-sm hover:bg-primary hover:text-white hover:border-primary transition-all">
+              Wedding Season Specials
+            </a>
+            <a routerLink="/gallery" class="px-4 py-2 bg-white border border-dark/10 text-dark text-sm hover:bg-primary hover:text-white hover:border-primary transition-all">
+              Gallery & Transformations
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Pricing Packages -->
     <section class="section-padding bg-section">
       <div class="container-custom">

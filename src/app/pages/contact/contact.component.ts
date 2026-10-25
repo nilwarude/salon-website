@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FormService, ContactFormData } from '../../services/form.service';
+import { GoogleBusinessProfileComponent } from '../../components/google-business-profile/google-business-profile.component';
 
 @Component({
   selector: 'app-contact',
@@ -47,6 +48,8 @@ export class ContactComponent {
     { icon: '✉️', title: 'Email', detail: 'contact@hairbar.in' },
     { icon: '🕐', title: 'Working Hours', detail: 'Mon-Sun: 9AM-10PM' },
   ];
+
+
 
   errClass(valid: boolean | null, touched: boolean | undefined | null): string {
     if (valid) return 'border-dark/20';

@@ -66,6 +66,60 @@ import { UiStateService } from '../../services/ui-state.service';
       </div>
     </section>
 
+    <!-- Local SEO Services Section -->
+    <section class="section-padding bg-section">
+      <div class="container-custom">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <p class="section-subtitle" data-aos="fade-up">Vadodara Services</p>
+          <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Premium Salon Services in Vadodara</h2>
+          <div class="gold-divider mt-6" data-aos="fade-up" data-aos-delay="200"></div>
+          <p class="text-dark/60 mt-6 leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+            Explore our specialized services designed for the Vadodara community. Expert treatments for all your hair and beauty needs.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <a routerLink="/haircut-and-styling-vadodara" class="group" data-aos="fade-up">
+            <div class="bg-white p-8 rounded-2xl shadow-premium group-hover:shadow-gold transition-all duration-300 text-center">
+              <div class="text-4xl mb-4">✂️</div>
+              <h3 class="font-serif text-lg text-dark mb-2">Haircut & Styling Vadodara</h3>
+              <p class="text-dark/60 text-sm mb-4">Expert precision cuts and modern styles for men and women</p>
+              <span class="text-primary text-sm font-medium group-hover:underline">Explore Service →</span>
+            </div>
+          </a>
+          <a routerLink="/hair-colour-vadodara" class="group" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white p-8 rounded-2xl shadow-premium group-hover:shadow-gold transition-all duration-300 text-center">
+              <div class="text-4xl mb-4">🎨</div>
+              <h3 class="font-serif text-lg text-dark mb-2">Hair Color Vadodara</h3>
+              <p class="text-dark/60 text-sm mb-4">Professional coloring with L'Oreal products for vibrant results</p>
+              <span class="text-primary text-sm font-medium group-hover:underline">Explore Service →</span>
+            </div>
+          </a>
+          <a routerLink="/hair-spa-vadodara" class="group" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white p-8 rounded-2xl shadow-premium group-hover:shadow-gold transition-all duration-300 text-center">
+              <div class="text-4xl mb-4">💎</div>
+              <h3 class="font-serif text-lg text-dark mb-2">Hair Spa Vadodara</h3>
+              <p class="text-dark/60 text-sm mb-4">Revitalizing treatments for hair fall, damage, and dryness</p>
+              <span class="text-primary text-sm font-medium group-hover:underline">Explore Service →</span>
+            </div>
+          </a>
+          <a routerLink="/bridal-makeup-vadodara" class="group" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-white p-8 rounded-2xl shadow-premium group-hover:shadow-gold transition-all duration-300 text-center">
+              <div class="text-4xl mb-4">👰</div>
+              <h3 class="font-serif text-lg text-dark mb-2">Bridal Makeup Vadodara</h3>
+              <p class="text-dark/60 text-sm mb-4">Complete bridal packages for Gujarati and North Indian weddings</p>
+              <span class="text-primary text-sm font-medium group-hover:underline">Explore Service →</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="text-center mt-12" data-aos="fade-up">
+          <p class="text-dark/50 text-sm mb-4">Looking for other services in Vadodara?</p>
+          <a routerLink="/services" class="btn-secondary">View All Services</a>
+        </div>
+      </div>
+    </section>
+
     <!-- Services Section - Luxury Cards -->
     <section class="section-padding bg-section">
       <div class="container-custom">
@@ -106,15 +160,15 @@ import { UiStateService } from '../../services/ui-state.service';
             <div class="group relative overflow-hidden card-premium" data-aos="fade-up">
               <div class="grid grid-cols-2">
                 <div class="relative aspect-square overflow-hidden">
-                  <img [src]="transform.before" [alt]="'Before - ' + transform.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy"/>
+                  <img [src]="transform.before" [alt]="'Before transformation of ' + transform.title + ' at HairBar Salon Vadodara'" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="400"/>
                   <div class="absolute top-3 left-3">
-                    <span class="bg-dark/80 text-white text-xs font-sans uppercase tracking-[0.1em] px-3 py-1">Before</span>
+                    <span class="bg-dark/80 text-white text-xs font-sans uppercase tracking-[0.1em] px-3 py-1" aria-hidden="true">Before</span>
                   </div>
                 </div>
                 <div class="relative aspect-square overflow-hidden">
-                  <img [src]="transform.after" [alt]="'After - ' + transform.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy"/>
+                  <img [src]="transform.after" [alt]="'After transformation of ' + transform.title + ' at HairBar Salon Vadodara'" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="400"/>
                   <div class="absolute top-3 left-3">
-                    <span class="bg-primary text-white text-xs font-sans uppercase tracking-[0.1em] px-3 py-1">After</span>
+                    <span class="bg-primary text-white text-xs font-sans uppercase tracking-[0.1em] px-3 py-1" aria-hidden="true">After</span>
                   </div>
                 </div>
               </div>
@@ -180,9 +234,9 @@ import { UiStateService } from '../../services/ui-state.service';
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3" data-aos="fade-up">
           @for (item of instagramFeed; track item.image) {
-            <a href="#" class="aspect-square overflow-hidden group relative">
-              <img [src]="item.image" alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
-              <div class="absolute inset-0 bg-dark/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <a href="https://instagram.com/hairbar.official" target="_blank" rel="noopener noreferrer" class="aspect-square overflow-hidden group relative" aria-label="View on Instagram">
+              <img [src]="item.image" [alt]="'HairBar Salon ' + $index + ' transformation showcase in Vadodara'" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" width="400" height="400"/>
+              <div class="absolute inset-0 bg-dark/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center" aria-hidden="true">
                 <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 01-1.25 1.25A1.25 1.25 0 0114.75 5.5a1.25 1.25 0 011.25-1.25 1.25 1.25 0 011.25 1.25M12 7a5 5 0 11-5 5 5 5 0 015-5m0 2a3 3 0 103 3 3 3 0 00-3-3z"/>
                 </svg>
@@ -207,6 +261,9 @@ import { UiStateService } from '../../services/ui-state.service';
               <button
                 (click)="toggleFaq(i)"
                 class="w-full flex items-center justify-between p-6 text-left"
+                [attr.aria-expanded]="expandedFaq() === i"
+                [attr.aria-controls]="'faq-content-' + i"
+                id="faq-button-{{ i }}"
               >
                 <span class="font-serif text-lg text-dark pr-4">{{ faq.question }}</span>
                 <svg
@@ -215,12 +272,16 @@ import { UiStateService } from '../../services/ui-state.service';
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                 </svg>
               </button>
               @if (expandedFaq() === i) {
-                <div class="px-6 pb-6 text-dark/60 leading-relaxed">
+                <div class="px-6 pb-6 text-dark/60 leading-relaxed" 
+                     [id]="'faq-content-' + i" 
+                     role="region" 
+                     [attr.aria-labelledby]="'faq-button-' + i">
                   {{ faq.answer }}
                 </div>
               }
